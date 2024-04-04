@@ -12,4 +12,9 @@ Objetivos de hoy:
  - Crear BD en aiven
  - Investigar sobre Google Auth con Firebase en Compose
 
+### 04/04/2024
+Objetivos de hoy:
+ Alan: 
+ Albert:
+ Roman: 
 
