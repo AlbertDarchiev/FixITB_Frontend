@@ -14,7 +14,7 @@ Objetivos de hoy:
 
 ### 04/04/2024
 Objetivos de hoy:
- Alan: 
- Albert:
- Roman: 
+ Alan:  
+ Albert:  
+ Roman:  
 
