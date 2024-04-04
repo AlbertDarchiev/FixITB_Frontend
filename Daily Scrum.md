@@ -13,7 +13,7 @@ Objetivos de hoy:
  - Investigar sobre Google Auth con Firebase en Compose
 
 ### 04/04/2024
-Objetivos de hoy:
+Objetivos de hoy:  
  Alan:  
  Albert:  
  Roman:  
