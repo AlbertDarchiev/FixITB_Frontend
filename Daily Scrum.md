@@ -13,8 +13,9 @@ Objetivos de hoy:
  - Investigar sobre Google Auth con Firebase en Compose
 
 ### 04/04/2024
-Objetivos de hoy:  
- Alan:  
- Albert:  
- Roman:  
+Objetivos de hoy:
+ - Crear tablas en la BD con sus campos correspondientes
+ - Diseño de la página de login
+ - Comenzar la API en ktor
+ - Comenzar proyecto compose
 
