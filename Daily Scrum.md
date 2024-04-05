@@ -19,3 +19,7 @@ Objetivos de hoy:
  - Comenzar la API en ktor
  - Comenzar proyecto compose
 
+### 05/04/2024
+Objetivos de hoy:
+ - Crear pagina de login (con Google Auth)
+
