@@ -21,5 +21,5 @@ Objetivos de hoy:
 
 ### 05/04/2024
 Objetivos de hoy:
- - Crear pagina de login (con Google Auth)
+ - Crear pantalla de Login
 
