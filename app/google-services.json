@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "115865438371",
+    "project_id": "fix-itb",
+    "storage_bucket": "fix-itb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115865438371:android:d1dcd9e4ef305948cb5716",
+        "android_client_info": {
+          "package_name": "com.example.fixitb_frontend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115865438371-bvo08d23igp22oslvsi9rpeqitm9uahf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fixitb_frontend",
+            "certificate_hash": "e1fed0da44371c5aba513303148eb99224d0a729"
+          }
+        },
+        {
+          "client_id": "115865438371-cf82nuu576brl30oqnh4qmk1d6gop95f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdhPdhF392ArSv6NzzEHAoULPlOiiil7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115865438371-cf82nuu576brl30oqnh4qmk1d6gop95f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
