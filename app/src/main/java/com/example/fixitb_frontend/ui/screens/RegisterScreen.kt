@@ -1,11 +1,8 @@
-package com.example.fixitb_frontend.screens
+package com.example.fixitb_frontend.ui.screens
 
-import android.print.PrintAttributes.Margins
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,82 +14,33 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults.shape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.fixitb_frontend.R
-import com.example.fixitb_frontend.screens.ui.theme.PrimaryColor
-import com.example.fixitb_frontend.screens.ui.theme.SecondaryColor
-import com.example.fixitb_frontend.screens.ui.theme.TertiaryColor
+import com.example.fixitb_frontend.ui.theme.PrimaryColor
+import com.example.fixitb_frontend.ui.theme.SecondaryColor
 
 @Composable
-fun MainScreen(navController: NavHostController, state: SignInState, onSignInClick: () -> Unit) {
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.LightGray)
-        .padding(15.dp)) {
-        Column(modifier = Modifier.fillMaxWidth()) {
-            Spacer(modifier = Modifier.height(20.dp))
-            Image(
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-                alignment = Alignment.Center,
-                painter = painterResource(id = R.drawable.ic_launcher_foreground),
-                contentDescription = null,
-                contentScale = ContentScale.Crop
-            )
-            Spacer(modifier = Modifier.height(100.dp))
-            Text(
-                text = "FixItB",
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-                color = Color.White,
-                style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)
-            )
-            SignInScreen(
-                navController = navController,
-                state = state,
-                onSignInClick = onSignInClick
-            )
-        }
-    }
-}
-
-
-
-@Composable
-fun SignInScreen(
+fun RegisterScreen(
     navController: NavHostController,
-    state: SignInState,
-    onSignInClick: () -> Unit
 ) {
-    val context = LocalContext.current
-    LaunchedEffect(key1 = state.signInError) {
-        state.signInError?.let { error ->
-            Toast.makeText(
-                context,
-                error,
-                Toast.LENGTH_LONG
-            ).show()
-        }
-    }
-
     Box(modifier = Modifier
         .fillMaxSize()
         .background(Color.Magenta)
@@ -107,7 +55,7 @@ fun SignInScreen(
     }
 
     Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-//        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(20.dp))
         Image(
             modifier = Modifier.align(Alignment.CenterHorizontally),
             alignment = Alignment.Center,
@@ -117,16 +65,15 @@ fun SignInScreen(
         )
         Spacer(modifier = Modifier.height(50.dp))
         Text(
-            text = "Iniciar sesió",
+            text = "Registre",
             modifier = Modifier.align(Alignment.CenterHorizontally),
             color = Color.White,
             style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)
         )
 
         Spacer(modifier = Modifier.height(40.dp))
-//        Button(onClick = onSignInClick
-//        ) { Text(text = "Sign in") }
-        LoginButton(onSignInClick)
+
+//        LoginButton(onSignInClick)
 
         Spacer(modifier = Modifier.height(15.dp))
 
@@ -156,6 +103,12 @@ fun SignInScreen(
                     )
                     Spacer(modifier = Modifier.width(10.dp))
 
+                    ClickableText(
+                        text = AnnotatedString("Registra't"),
+                        onClick = {
+                            navController.navigate("register")
+                        },
+                    )
 
                 }
 
@@ -252,6 +205,5 @@ private fun LoginButton(onSignInClick: () -> Unit){
 )@Composable
 fun SignInScreen() {
     val navController = rememberNavController() // Simular NavController
-    val state = SignInState() // Simular SignInState
-    SignInScreen(navController = navController, state = state, onSignInClick = {})
+    RegisterScreen(navController = navController)
 }

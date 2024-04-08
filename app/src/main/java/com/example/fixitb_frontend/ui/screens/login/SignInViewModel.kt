@@ -1,4 +1,4 @@
-package com.example.fixitb_frontend.screens
+package com.example.fixitb_frontend.ui.screens.login
 
 import androidx.lifecycle.ViewModel
 import com.example.fixitb_frontend.SignInResult

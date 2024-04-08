@@ -1,4 +1,4 @@
-package com.example.fixitb_frontend.screens
+package com.example.fixitb_frontend.ui.screens.login
 
 data class SignInState(
     val isSignInSuccessful: Boolean = false,

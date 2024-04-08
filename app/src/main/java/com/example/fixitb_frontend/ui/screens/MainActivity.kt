@@ -1,4 +1,4 @@
-package com.example.fixitb_frontend.screens
+package com.example.fixitb_frontend.ui.screens
 
 import android.os.Bundle
 import android.util.Log
@@ -43,8 +43,11 @@ import com.example.fixitb_frontend.R
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.example.fixitb_frontend.GoogleAuthClient
-import com.example.fixitb_frontend.screens.ui.theme.SecondaryColor
-import com.example.fixitb_frontend.screens.ui.theme.TertiaryColor
+import com.example.fixitb_frontend.ui.screens.login.SignInScreen
+import com.example.fixitb_frontend.ui.screens.login.SignInState
+import com.example.fixitb_frontend.ui.screens.login.SignInViewModel
+import com.example.fixitb_frontend.ui.theme.SecondaryColor
+import com.example.fixitb_frontend.ui.theme.TertiaryColor
 import com.google.android.gms.auth.api.identity.Identity
 import kotlinx.coroutines.launch
 
@@ -65,6 +68,12 @@ class MainActivity : ComponentActivity() {
             NavHost(navController = navController, startDestination = "login") {
                 composable("splash") {
                     SplashScreen(navController)
+                }
+                composable("register") {
+                    SplashScreen(navController)
+                }
+                composable("main") {
+                    MainScreen(navController)
                 }
                 composable("login") {
                     val viewModel = viewModel<SignInViewModel>()
@@ -98,7 +107,7 @@ class MainActivity : ComponentActivity() {
                                 Toast.LENGTH_LONG
                             ).show()
 
-                            navController.navigate("login")
+                            navController.navigate("main")
                             viewModel.resetState()
                         }
                     }
@@ -118,9 +127,9 @@ class MainActivity : ComponentActivity() {
                         }
                     )
                 }
-                composable("main") {
+//                navController.navigate("main")
                     // Aquí puedes colocar el destino principal después del inicio de sesión
-                }
+
             }
         }
     }

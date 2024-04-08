@@ -7,14 +7,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:115865438371:android:d1dcd9e4ef305948cb5716",
+        "mobilesdk_app_id": "@string/mobilesdk_app_id",
         "android_client_info": {
           "package_name": "com.example.fixitb_frontend"
         }
       },
       "oauth_client": [
         {
-          "client_id": "115865438371-bvo08d23igp22oslvsi9rpeqitm9uahf.apps.googleusercontent.com",
+          "client_id": "@string/oauth_client_id",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.fixitb_frontend",
