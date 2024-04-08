@@ -23,3 +23,6 @@ Objetivos de hoy:
 Objetivos de hoy:
  - Crear pantalla de Login
 
+### 08/04/2024
+Objetivos de hoy:
+ - Conexion con api
