@@ -1,5 +1,6 @@
 package com.example.fixitb_frontend.ui.screens.login
 
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -91,7 +92,7 @@ fun SignInScreen(
 
         Spacer(modifier = Modifier.height(40.dp))
 
-        LoginButton(onSignInClick)
+        LoginButton(navController, onSignInClick)
 
         Spacer(modifier = Modifier.height(15.dp))
 
@@ -177,8 +178,12 @@ fun EmailAndPasswordFields() {
 
 
 @Composable
-private fun LoginButton(onSignInClick: () -> Unit){
-    Button(onClick = onSignInClick,
+private fun LoginButton(navController: NavHostController, onSignInClick: () -> Unit){
+    Button(onClick = {
+        onSignInClick()
+        Log.d("LOGIN BUTTON", "LOGED IN")
+//        navController.navigate("main")
+                     },
         colors = ButtonDefaults.buttonColors(containerColor = SecondaryColor),
         modifier = Modifier
             .width(250.dp)
