@@ -1,0 +1,1 @@
+@string/mobilesdk_app_id

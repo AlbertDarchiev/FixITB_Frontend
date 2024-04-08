@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">fixItb_frontend</string>
+    <string name="current_key_api">AIzaSyAdhPdhF392ArSv6NzzEHAoULPlOiiil7Y</string>
+    <string name="default_web_client_id" translatable="false">115865438371-cf82nuu576brl30oqnh4qmk1d6gop95f.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">115865438371</string>
+    <string name="google_api_key" translatable="false">AIzaSyAdhPdhF392ArSv6NzzEHAoULPlOiiil7Y</string>
+    <string name="google_app_id" translatable="false">@string/mobilesdk_app_id</string>
+    <string name="google_client_id">115865438371-cf82nuu576brl30oqnh4qmk1d6gop95f.apps.googleusercontent.com</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAdhPdhF392ArSv6NzzEHAoULPlOiiil7Y</string>
+    <string name="google_storage_bucket" translatable="false">fix-itb.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mobilesdk_app_id">1:115865438371:android:d1dcd9e4ef305948cb5716</string>
+    <string name="oauth_client_id">115865438371-bvo08d23igp22oslvsi9rpeqitm9uahf.apps.googleusercontent.com</string>
+    <string name="project_id" translatable="false">fix-itb</string>
+    <string name="title_activity_login_screen">LoginScreen</string>
+    <style name="Theme.FixItb_frontend" parent="android:Theme.Material.Light.NoActionBar"/>
+</resources>
