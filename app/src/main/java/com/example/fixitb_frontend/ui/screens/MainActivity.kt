@@ -23,6 +23,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -38,6 +39,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -49,6 +51,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import coil.compose.rememberAsyncImagePainter
 import com.example.fixitb_frontend.GoogleAuthClient
 import com.example.fixitb_frontend.ui.screens.login.SignInScreen
 import com.example.fixitb_frontend.ui.screens.login.SignInState
@@ -71,18 +74,9 @@ import java.lang.Exception
 
 
 class MainActivity : ComponentActivity() {
-    private val googleAuthUiClient by lazy {
-        GoogleAuthClient(
-            context = applicationContext,
-            oneTapClient = Identity.getSignInClient(applicationContext)
-        )
-    }
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
             val navController = rememberNavController()
             NavHost(navController = navController, startDestination = "login") {
                 composable("login") {
@@ -131,10 +125,18 @@ fun ALogin() {
             }
         }
         else{
+            Image(
+                painter = rememberAsyncImagePainter(user?.photoUrl),
+                contentDescription = null,
+                modifier = Modifier.size(100.dp))
+            Spacer(modifier = Modifier.height(20.dp))
+            Text(text = ("HOLA, ${user?.email}"))
+            Spacer(modifier = Modifier.height(20.dp))
             Text(text = ("HOLA, ${user?.displayName}"))
-            Spacer(modifier = Modifier.height(50.dp))
+            Spacer(modifier = Modifier.height(20.dp))
             Button(onClick = {
                 Firebase.auth.signOut()
+
                 user = null
             }) {
                 Text("Cerrar sesión")

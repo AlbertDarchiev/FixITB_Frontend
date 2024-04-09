@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.fixitb_frontend.app-mergeDebugResources-57:/values-gu/values-gu.xml",
+            "outputFile": "com.example.fixitb_frontend.app-mergeDebugResources-59:/values-gu/values-gu.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\afb8a033625a7f66c87d83195c7d9141\\transformed\\play-services-base-18.0.1\\res\\values-gu\\values.xml",

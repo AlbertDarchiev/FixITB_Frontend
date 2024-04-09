@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.fixitb_frontend.app-mergeDebugResources-57:/values-as/values-as.xml",
+            "outputFile": "com.example.fixitb_frontend.app-mergeDebugResources-59:/values-as/values-as.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\a081a45489167f885fd9c6d62ea527e3\\transformed\\material3-1.1.1\\res\\values-as\\values-as.xml",

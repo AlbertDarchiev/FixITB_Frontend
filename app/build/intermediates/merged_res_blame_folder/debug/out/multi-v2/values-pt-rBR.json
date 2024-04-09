@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.fixitb_frontend.app-mergeDebugResources-57:/values-pt-rBR/values-pt-rBR.xml",
+            "outputFile": "com.example.fixitb_frontend.app-mergeDebugResources-59:/values-pt-rBR/values-pt-rBR.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\7ca63408eacc7a7ea130a36d63e9cdc3\\transformed\\core-1.12.0\\res\\values-pt-rBR\\values-pt-rBR.xml",
