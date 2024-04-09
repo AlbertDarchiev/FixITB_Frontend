@@ -23,6 +23,6 @@ Objetivos de hoy:
 Objetivos de hoy:
  - Crear pantalla de Login
 
-### 08/04/2024
+### 09/04/2024
 Objetivos de hoy:
- - Conexion con api
+ - Establecer conexion entre la APP y la API
