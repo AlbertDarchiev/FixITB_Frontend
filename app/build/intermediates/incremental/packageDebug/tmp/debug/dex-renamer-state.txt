@@ -1,15 +1,15 @@
-#Mon Apr 08 16:21:21 CEST 2024
-base.0=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\fixItb_frontend\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\fixItb_frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.2=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\fixItb_frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
-base.3=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\fixItb_frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
-base.4=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\fixItb_frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
-base.5=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\fixItb_frontend\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+#Tue Apr 09 16:40:24 CEST 2024
+base.0=C\:\\Users\\azizr\\OneDrive\\Documentos\\FixItbApp\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\Users\\azizr\\OneDrive\\Documentos\\FixItbApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.2=C\:\\Users\\azizr\\OneDrive\\Documentos\\FixItbApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
+base.3=C\:\\Users\\azizr\\OneDrive\\Documentos\\FixItbApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+base.4=C\:\\Users\\azizr\\OneDrive\\Documentos\\FixItbApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
+base.5=C\:\\Users\\azizr\\OneDrive\\Documentos\\FixItbApp\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
 path.0=classes.dex
 path.1=0/classes.dex
-path.2=5/classes.dex
-path.3=12/classes.dex
-path.4=1/classes.dex
+path.2=12/classes.dex
+path.3=1/classes.dex
+path.4=5/classes.dex
 path.5=classes2.dex
 renamed.0=classes.dex
 renamed.1=classes2.dex
