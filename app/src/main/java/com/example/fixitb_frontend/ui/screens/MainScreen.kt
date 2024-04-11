@@ -205,5 +205,5 @@ private fun LoginButton(onSignInClick: () -> Unit){
 )@Composable
 fun MainScreen() {
     val navController = rememberNavController() // Simular NavController
-    RegisterScreen(navController = navController)
+//    RegisterScreen(navController = navController)
 }

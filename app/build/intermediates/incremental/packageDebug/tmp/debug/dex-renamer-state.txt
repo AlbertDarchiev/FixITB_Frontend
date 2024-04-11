@@ -1,4 +1,4 @@
-#Tue Apr 09 16:43:28 CEST 2024
+#Tue Apr 09 16:54:43 CEST 2024
 base.0=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\fixItb_frontend\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\fixItb_frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\fixItb_frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
