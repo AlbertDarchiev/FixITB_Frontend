@@ -27,6 +27,6 @@ Objetivos de hoy:
 Objetivos de hoy:
  - Establecer conexion entre la APP y la API
 
- - ### 08/04/2024
+### 11/04/2024
 Objetivos de hoy:
  - x
