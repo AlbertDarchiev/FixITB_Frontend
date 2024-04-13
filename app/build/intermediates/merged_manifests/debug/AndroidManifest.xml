@@ -30,7 +30,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.FixItb_frontend" >
+        android:theme="@style/Theme.FixItb_frontend"
+        android:usesCleartextTraffic="true" >
         <activity
             android:name="com.example.fixitb_frontend.screens.LoginScreen"
             android:exported="false"

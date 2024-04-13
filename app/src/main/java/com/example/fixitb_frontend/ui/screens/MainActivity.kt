@@ -60,13 +60,25 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
+import androidx.lifecycle.lifecycleScope
+
+import androidx.lifecycle.viewModelScope
+import com.example.fixitb_frontend.api.ApiViewModel
+import com.example.fixitb_frontend.models.User
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
 
 
 // ...
-
+//                composable("register") {
+//                    SplashScreen(navController)
+//                }
+//                composable("main") {
+//                    MainScreen(navController)
 
 class MainActivity : ComponentActivity() {
+    private val activityScope = CoroutineScope(Dispatchers.Main)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -75,21 +87,35 @@ class MainActivity : ComponentActivity() {
                 composable("login") {
                     ALogin()
                 }
-//                composable("register") {
-//                    SplashScreen(navController)
-//                }
-//                composable("main") {
-//                    MainScreen(navController)
+
                 }
         }
     }
 }
 @Composable
-fun ALogin() {
+fun ALogin(){
     var user by remember { mutableStateOf(Firebase.auth.currentUser) }
     val launcher = rememberFirebaseAuthLauncher(
         onAuthComplete = { result ->
             user = result.user
+            result.user?.email?.let { email ->
+                CoroutineScope(Dispatchers.IO).launch {
+                    try{
+                        Log.d("EMAAAIL", email)
+                        val userData = User(id = 17, email = email, classId = 1, role = "student")
+                        val response = ApiViewModel.userService.insertUser(userData)
+                        if (response.isSuccessful){
+                            Log.d("good", "BUENAAAAAAA CRACKK")
+                        } else{
+                            Log.d("NO","NO SE HA INSERTADO")
+                            Log.d("ERRORRRRRR", response.message())
+                        }
+                    } catch (e: Exception){
+                        Log.d("baaad", "MAAAAAAL CRACK")
+                        Log.d("ERROR", e.toString())
+                    }
+                }
+            }
         },
         onAuthError = { e ->
             user = null
@@ -165,7 +191,6 @@ fun rememberFirebaseAuthLauncher(
     }
 }
 
-
 @Composable
 fun LoginScreen(navController: NavHostController) {
     Box(modifier = Modifier
@@ -197,18 +222,10 @@ fun LoginScreen(navController: NavHostController) {
             style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)
         )
         LoginButton(navController)
-
-
-
-
         SignInScreen(navController = navController, SignInState(), onSignInClick = {})
-
-
-
 
     }
 }
-
 
 @Composable
 private fun LoginButton(navController: NavController){
@@ -272,13 +289,7 @@ fun SplashScreen(navController: NavHostController) {
             style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)
         )
         LoginButton(navController)
-
-
         SignInScreen(navController = navController, SignInState(), onSignInClick = { print("AAAAAAAAAAAA") })
-
-
-
-
     }
 }
 

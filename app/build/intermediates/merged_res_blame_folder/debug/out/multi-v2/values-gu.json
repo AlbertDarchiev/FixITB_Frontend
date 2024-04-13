@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.fixitb_frontend.app-mergeDebugResources-59:/values-gu/values-gu.xml",
+            "outputFile": "com.example.fixitb_frontend.app-mergeDebugResources-60:/values-gu/values-gu.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\afb8a033625a7f66c87d83195c7d9141\\transformed\\play-services-base-18.0.1\\res\\values-gu\\values.xml",
+                    "source": "C:\\Users\\aglde\\.gradle\\caches\\transforms-3\\5be3762a067458219d2eca2de389b2b1\\transformed\\play-services-base-18.0.1\\res\\values-gu\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\7ca63408eacc7a7ea130a36d63e9cdc3\\transformed\\core-1.12.0\\res\\values-gu\\values-gu.xml",
+                    "source": "C:\\Users\\aglde\\.gradle\\caches\\transforms-3\\8e30cc407ad4df47db87309cff0d0f72\\transformed\\core-1.12.0\\res\\values-gu\\values-gu.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\85f6fb45d131bec2a80735e6147aca7b\\transformed\\play-services-basement-18.3.0\\res\\values-gu\\values.xml",
+                    "source": "C:\\Users\\aglde\\.gradle\\caches\\transforms-3\\1fd1be70ecbc0b475383d3d30814d315\\transformed\\play-services-basement-18.3.0\\res\\values-gu\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -55,24 +55,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\61f8faef22648353fed7f78e5ccbae53\\transformed\\ui-release\\res\\values-gu\\values-gu.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,197,279,372,471,558,644,745,832,918,986,1055,1138,1221,1296,1372,1438",
-                        "endColumns": "91,81,92,98,86,85,100,86,85,67,68,82,82,74,75,65,115",
-                        "endOffsets": "192,274,367,466,553,639,740,827,913,981,1050,1133,1216,1291,1367,1433,1549"
-                    },
-                    "to": {
-                        "startLines": "13,14,66,67,69,74,75,76,77,78,79,80,81,83,87,88,89",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "1270,1362,7360,7453,7629,8105,8191,8292,8379,8465,8533,8602,8685,8849,9202,9278,9344",
-                        "endColumns": "91,81,92,98,86,85,100,86,85,67,68,82,82,74,75,65,115",
-                        "endOffsets": "1357,1439,7448,7547,7711,8186,8287,8374,8460,8528,8597,8680,8763,8919,9273,9339,9455"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\a081a45489167f885fd9c6d62ea527e3\\transformed\\material3-1.1.1\\res\\values-gu\\values-gu.xml",
+                    "source": "C:\\Users\\aglde\\.gradle\\caches\\transforms-3\\e58ac91d50c3560ecd3e10087830d5ba\\transformed\\material3-1.1.1\\res\\values-gu\\values-gu.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -89,7 +72,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\9cc77afa186e6b0f50397ca9ac20ebfc\\transformed\\browser-1.4.0\\res\\values-gu\\values-gu.xml",
+                    "source": "C:\\Users\\aglde\\.gradle\\caches\\transforms-3\\3f1a848ed5e7b8b718f650ee41bbf84a\\transformed\\browser-1.4.0\\res\\values-gu\\values-gu.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -103,6 +86,23 @@
                         "startOffsets": "3699,7794,7895,8004",
                         "endColumns": "100,100,108,100",
                         "endOffsets": "3795,7890,7999,8100"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\aglde\\.gradle\\caches\\transforms-3\\e73445cea88ce4b450228e8ed3d41f8b\\transformed\\ui-release\\res\\values-gu\\values-gu.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,197,279,372,471,558,644,745,832,918,986,1055,1138,1221,1296,1372,1438",
+                        "endColumns": "91,81,92,98,86,85,100,86,85,67,68,82,82,74,75,65,115",
+                        "endOffsets": "192,274,367,466,553,639,740,827,913,981,1050,1133,1216,1291,1367,1433,1549"
+                    },
+                    "to": {
+                        "startLines": "13,14,66,67,69,74,75,76,77,78,79,80,81,83,87,88,89",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1270,1362,7360,7453,7629,8105,8191,8292,8379,8465,8533,8602,8685,8849,9202,9278,9344",
+                        "endColumns": "91,81,92,98,86,85,100,86,85,67,68,82,82,74,75,65,115",
+                        "endOffsets": "1357,1439,7448,7547,7711,8186,8287,8374,8460,8528,8597,8680,8763,8919,9273,9339,9455"
                     }
                 }
             ]
