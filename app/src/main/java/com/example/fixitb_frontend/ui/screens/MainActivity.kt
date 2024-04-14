@@ -3,7 +3,6 @@ package com.example.fixitb_frontend.ui.screens
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.ManagedActivityResultLauncher
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -20,7 +19,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -46,46 +44,54 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import coil.compose.rememberAsyncImagePainter
-import com.example.fixitb_frontend.ui.screens.login.SignInScreen
-import com.example.fixitb_frontend.ui.screens.login.SignInState
+import com.example.fixitb_frontend.models.User
 import com.example.fixitb_frontend.ui.theme.SecondaryColor
 import com.example.fixitb_frontend.ui.theme.TertiaryColor
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
-import androidx.lifecycle.lifecycleScope
-
-import androidx.lifecycle.viewModelScope
-import com.example.fixitb_frontend.api.ApiViewModel
-import com.example.fixitb_frontend.models.User
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
 
 
 // ...
-//                composable("register") {
-//                    SplashScreen(navController)
-//                }
-//                composable("main") {
-//                    MainScreen(navController)
+
 
 class MainActivity : ComponentActivity() {
-    private val activityScope = CoroutineScope(Dispatchers.Main)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             val navController = rememberNavController()
-            NavHost(navController = navController, startDestination = "login") {
+
+            var user by remember { mutableStateOf(Firebase.auth.currentUser) }
+            val context = LocalContext.current
+            val token = context.getString(R.string.google_client_id)
+            val launcher = rememberFirebaseAuthLauncher(
+                navController,
+                onAuthComplete = { result ->
+                    user = result.user
+                },
+                onAuthError = { e ->
+                    user = null
+                    Log.d("Google Auth", "Error signing in", e)
+                }
+            )
+
+            NavHost(navController = navController, startDestination = "splash") {
                 composable("login") {
-                    ALogin()
+                    LoginScreen(launcher, token, context)
+                }
+                composable("main") {
+                    IncidencesScreen(navController)
+                }
+                composable("splash") {
+                    ALogin(navController, user)
                 }
 
                 }
@@ -93,78 +99,44 @@ class MainActivity : ComponentActivity() {
     }
 }
 @Composable
-fun ALogin(){
-    var user by remember { mutableStateOf(Firebase.auth.currentUser) }
-    val launcher = rememberFirebaseAuthLauncher(
-        onAuthComplete = { result ->
-            user = result.user
-            result.user?.email?.let { email ->
-                CoroutineScope(Dispatchers.IO).launch {
-                    try{
-                        Log.d("EMAAAIL", email)
-                        val userData = User(id = 17, email = email, classId = 1, role = "student")
-                        val response = ApiViewModel.userService.insertUser(userData)
-                        if (response.isSuccessful){
-                            Log.d("good", "BUENAAAAAAA CRACKK")
-                        } else{
-                            Log.d("NO","NO SE HA INSERTADO")
-                            Log.d("ERRORRRRRR", response.message())
-                        }
-                    } catch (e: Exception){
-                        Log.d("baaad", "MAAAAAAL CRACK")
-                        Log.d("ERROR", e.toString())
-                    }
-                }
-            }
-        },
-        onAuthError = { e ->
-            user = null
-            Log.d("Google Auth", "Error signing in", e)
-        }
-    )
-
-    val context = LocalContext.current
-    val token = context.getString(R.string.google_client_id)
-    Log.d("TOKEN", token)
-
+fun ALogin(navController: NavHostController, user: FirebaseUser?) {
     Column {
-        if (user == null){
-            Button(onClick = {
-                val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    .requestIdToken(token)
-                    .requestEmail()
-                    .build()
 
-                val googleSignInClient = GoogleSignIn.getClient(context, gso)
-                launcher.launch(googleSignInClient.signInIntent)
-                Log.d("LOGIN BUTTON", "CLICKED")
-            }) {
-                Text("Iniciar sesión")
-            }
+        if (user == null){
+            navController.navigate("login")
         }
         else{
-            Image(
-                painter = rememberAsyncImagePainter(user?.photoUrl),
-                contentDescription = null,
-                modifier = Modifier.size(100.dp))
-            Spacer(modifier = Modifier.height(20.dp))
-            Text(text = ("HOLA, ${user?.email}"))
-            Spacer(modifier = Modifier.height(20.dp))
-            Text(text = ("HOLA, ${user?.displayName}"))
-            Spacer(modifier = Modifier.height(20.dp))
-            Button(onClick = {
-                Firebase.auth.signOut()
-
-                user = null
-            }) {
-                Text("Cerrar sesión")
-            }
+            val userInfo = User(1, "tecnic", "albert1979djy@gmail.com", 1)
+//            val userInfo = User(2, "admin", "albert1979djy@gmail.com", 1)
+//            val userInfo = User(3, "student", "albert1979djy@gmail.com", 1)
+            if (userInfo.role == "admin")
+                navController.navigate("main")
+            else if (userInfo.role == "tecnic")
+                navController.navigate("main")
+            else
+                navController.navigate("main")
+//            Image(
+//                painter = rememberAsyncImagePainter(user?.photoUrl),
+//                contentDescription = null,
+//                modifier = Modifier.size(100.dp))
+//            Spacer(modifier = Modifier.height(20.dp))
+//            Text(text = ("HOLA, ${user?.email}"))
+//            Spacer(modifier = Modifier.height(20.dp))
+//            Text(text = ("HOLA, ${user?.displayName}"))
+//            Spacer(modifier = Modifier.height(20.dp))
+//            Button(onClick = {
+//                Firebase.auth.signOut()
+//                user = null
+//            }) {
+//                Text("Cerrar sesión")
+//            }
         }
     }
 }
 
 @Composable
 fun rememberFirebaseAuthLauncher(
+    navController: NavHostController,
     onAuthComplete: (AuthResult) -> Unit,
     onAuthError: (Exception) -> Unit
 ): ManagedActivityResultLauncher<Intent, ActivityResult>{
@@ -180,9 +152,8 @@ fun rememberFirebaseAuthLauncher(
                 scope.launch {
                     val authResult = Firebase.auth.signInWithCredential(credential).await()
                     onAuthComplete(authResult)
+                    navController.navigate("main")
                 }
-//                val authResult = Firebase.auth.signInWithCredential(credential).await()
-//                onAuthComplete(authResult)
             }catch (e: Exception){
                 Log.d("Google Auth", "Error signing in", e)
                 onAuthError(e)
@@ -191,8 +162,9 @@ fun rememberFirebaseAuthLauncher(
     }
 }
 
+
 @Composable
-fun LoginScreen(navController: NavHostController) {
+fun LoginScreen1(navController: NavHostController) {
     Box(modifier = Modifier
         .fillMaxSize()
         .background(Color.Magenta)
@@ -222,10 +194,9 @@ fun LoginScreen(navController: NavHostController) {
             style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)
         )
         LoginButton(navController)
-        SignInScreen(navController = navController, SignInState(), onSignInClick = {})
-
-    }
+            }
 }
+
 
 @Composable
 private fun LoginButton(navController: NavController){
@@ -289,7 +260,6 @@ fun SplashScreen(navController: NavHostController) {
             style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)
         )
         LoginButton(navController)
-        SignInScreen(navController = navController, SignInState(), onSignInClick = { print("AAAAAAAAAAAA") })
     }
 }
 
