@@ -44,6 +44,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.fixitb_frontend.api.ApiViewModel
+import com.example.fixitb_frontend.api.ApiViewModel.userService
 import com.example.fixitb_frontend.models.User
 import com.example.fixitb_frontend.ui.theme.SecondaryColor
 import com.example.fixitb_frontend.ui.theme.TertiaryColor
@@ -54,9 +56,12 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import java.lang.Exception
+import retrofit2.Response
 
 
 // ...
@@ -102,10 +107,13 @@ class MainActivity : ComponentActivity() {
 fun ALogin(navController: NavHostController, user: FirebaseUser?) {
     Column {
 
+        // HACER GET A API CON (user.email) PARA VER EL ROL DEL USUARIO CON ESE CORREO
+
         if (user == null){
             navController.navigate("login")
         }
         else{
+            Log.d("USER", user.email.toString())
             val userInfo = User(1, "tecnic", "albert1979djy@gmail.com", 1)
 //            val userInfo = User(2, "admin", "albert1979djy@gmail.com", 1)
 //            val userInfo = User(3, "student", "albert1979djy@gmail.com", 1)
@@ -152,7 +160,26 @@ fun rememberFirebaseAuthLauncher(
                 scope.launch {
                     val authResult = Firebase.auth.signInWithCredential(credential).await()
                     onAuthComplete(authResult)
-                    navController.navigate("main")
+
+                    authResult.user?.email
+                    val userData = User(1, "student", authResult.user?.email.toString(), 1)
+
+                    try {
+                        val response = userService.insertUser(userData)
+                        Log.d("LOGIN - RESPONSE", response.body().toString())
+                        val responseUser : User = response.body()!!
+                        Log.d("LOGIN - UserRole", response.body()!!.role)
+
+                        if (responseUser.role == "admin")
+                            navController.navigate("main")
+                        else if (responseUser.role == "tecnic")
+                            navController.navigate("main")
+                        else
+                            navController.navigate("main")
+                    }
+                    catch (e: Exception){
+                        Log.d("LOGIN - ERROR", e.toString())
+                    }
                 }
             }catch (e: Exception){
                 Log.d("Google Auth", "Error signing in", e)

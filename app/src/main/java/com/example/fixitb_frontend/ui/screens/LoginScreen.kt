@@ -66,6 +66,7 @@ fun LoginScreen(launcher : ManagedActivityResultLauncher<Intent, ActivityResult>
             style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)
         )
         LoginButton(onSignInClick = {
+            launcher
             val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(token)
                 .requestEmail()
