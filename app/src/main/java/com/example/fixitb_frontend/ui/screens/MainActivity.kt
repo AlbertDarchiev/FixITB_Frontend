@@ -117,7 +117,7 @@ fun ALogin(navController: NavHostController, user: FirebaseUser?) {
         }
         else{
             Log.d("USER", user.email.toString())
-            val userInfo = User(1, "tecnic", "albert1979djy@gmail.com", 1)
+            val userInfo = User(1, "tecnic", "albert1979djy@gmail.com")
 //            val userInfo = User(2, "admin", "albert1979djy@gmail.com", 1)
 //            val userInfo = User(3, "student", "albert1979djy@gmail.com", 1)
             if (userInfo.role == "admin")
@@ -165,7 +165,7 @@ fun rememberFirebaseAuthLauncher(
                     onAuthComplete(authResult)
 
                     authResult.user?.email
-                    val userData = User(1, "student", authResult.user?.email.toString(), 1)
+                    val userData = User(1, "student", authResult.user?.email.toString())
 
                     try {
                         val response = userService.insertUser(userData)

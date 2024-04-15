@@ -43,7 +43,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 val usersList = listOf(
-    User(1, "AAAAA", "albert@gmail.com", 1),User(1, "AAAAA", "albert@gmail.com", 1),User(1, "AAAAA", "albert@gmail.com", 1), User(2, "CCCCC", "assdsd@gmail.ocm", 2), User(3, "EEEEE", "FFFFF", 3)
+    User(1, "AAAAA", "albert@gmail.com"),User(1, "AAAAA", "albert@gmail.com"),User(1, "AAAAA", "albert@gmail.com"), User(2, "CCCCC", "assdsd@gmail.ocm"), User(3, "EEEEE", "FFFFF")
 )
 @Composable
 fun IncidencesScreen(

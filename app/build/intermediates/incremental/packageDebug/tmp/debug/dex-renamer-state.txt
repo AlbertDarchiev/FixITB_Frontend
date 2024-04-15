@@ -1,4 +1,4 @@
-#Mon Apr 15 16:33:21 CEST 2024
+#Mon Apr 15 16:44:34 CEST 2024
 base.0=C\:\\Users\\aglde\\StudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\aglde\\StudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\aglde\\StudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
