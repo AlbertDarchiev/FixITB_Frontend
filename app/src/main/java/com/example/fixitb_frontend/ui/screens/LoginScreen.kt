@@ -26,6 +26,7 @@ import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.fixitb_frontend.R
@@ -35,7 +36,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 
 @Composable
-fun LoginScreen(launcher : ManagedActivityResultLauncher<Intent, ActivityResult>, token : String, context: Context) {
+fun LoginScreen(launcher : ManagedActivityResultLauncher<Intent, ActivityResult>? = null, token : String? = null, context: Context? = null) {
     Box(modifier = Modifier
         .fillMaxSize()
         .background(Color.Magenta)
@@ -60,21 +61,21 @@ fun LoginScreen(launcher : ManagedActivityResultLauncher<Intent, ActivityResult>
         )
         Spacer(modifier = Modifier.height(50.dp))
         Text(
-            text = "Iniciar sesió",
+            text = "Iniciar sesiÃ³",
             modifier = Modifier.align(Alignment.CenterHorizontally),
             color = Color.White,
             style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)
         )
+
         LoginButton(onSignInClick = {
             launcher
             val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(token)
+                .requestIdToken(token!!)
                 .requestEmail()
                 .build()
 
             val googleSignInClient = GoogleSignIn.getClient(context, gso)
-            launcher.launch(googleSignInClient.signInIntent)
-            Log.d("LOGIN BUTTON", "CLICKED")
+            launcher!!.launch(googleSignInClient.signInIntent)
         })
     }
 }
@@ -106,4 +107,10 @@ private fun LoginButton(onSignInClick: () -> Unit){
             )
         }
     }
+}
+
+@Preview
+@Composable
+fun PreviewLoginScreen() {
+    LoginScreen(launcher = null, token = null, context = null)
 }

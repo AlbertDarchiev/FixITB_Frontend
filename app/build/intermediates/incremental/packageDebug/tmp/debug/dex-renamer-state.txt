@@ -1,10 +1,10 @@
-#Sun Apr 14 23:06:59 CEST 2024
-base.0=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\fixItb_frontend\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\fixItb_frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.2=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\fixItb_frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
-base.3=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\fixItb_frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
-base.4=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\fixItb_frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
-base.5=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\fixItb_frontend\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+#Mon Apr 15 16:33:21 CEST 2024
+base.0=C\:\\Users\\aglde\\StudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\Users\\aglde\\StudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.2=C\:\\Users\\aglde\\StudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
+base.3=C\:\\Users\\aglde\\StudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+base.4=C\:\\Users\\aglde\\StudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
+base.5=C\:\\Users\\aglde\\StudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=12/classes.dex

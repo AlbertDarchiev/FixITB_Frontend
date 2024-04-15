@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -44,12 +45,15 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import coil.compose.rememberAsyncImagePainter
 import com.example.fixitb_frontend.api.ApiViewModel
 import com.example.fixitb_frontend.api.ApiViewModel.userService
 import com.example.fixitb_frontend.models.User
+
 import com.example.fixitb_frontend.ui.theme.SecondaryColor
 import com.example.fixitb_frontend.ui.theme.TertiaryColor
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseUser
@@ -58,13 +62,12 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import java.lang.Exception
 import retrofit2.Response
-
-
-// ...
 
 
 class MainActivity : ComponentActivity() {
@@ -99,7 +102,7 @@ class MainActivity : ComponentActivity() {
                     ALogin(navController, user)
                 }
 
-                }
+            }
         }
     }
 }
@@ -136,7 +139,7 @@ fun ALogin(navController: NavHostController, user: FirebaseUser?) {
 //                Firebase.auth.signOut()
 //                user = null
 //            }) {
-//                Text("Cerrar sesión")
+//                Text("Cerrar sesi贸n")
 //            }
         }
     }
@@ -215,13 +218,13 @@ fun LoginScreen1(navController: NavHostController) {
         )
         Spacer(modifier = Modifier.height(50.dp))
         Text(
-            text = "Iniciar sesió",
+            text = "Iniciar sesi贸",
             modifier = Modifier.align(Alignment.CenterHorizontally),
             color = Color.White,
             style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)
         )
         LoginButton(navController)
-            }
+    }
 }
 
 
@@ -249,7 +252,7 @@ private fun LoginButton(navController: NavController){
             )
             Spacer(modifier = Modifier.width(20.dp))
             Text(
-                text = "Iniciar sesió",
+                text = "Iniciar sesi贸",
                 color = TertiaryColor,
                 fontSize = 18.sp
             )
@@ -281,7 +284,7 @@ fun SplashScreen(navController: NavHostController) {
         )
         Spacer(modifier = Modifier.height(50.dp))
         Text(
-            text = "Iniciar sesió",
+            text = "Iniciar sesi贸",
             modifier = Modifier.align(Alignment.CenterHorizontally),
             color = Color.White,
             style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)
