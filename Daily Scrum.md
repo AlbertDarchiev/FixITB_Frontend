@@ -29,4 +29,12 @@ Objetivos de hoy:
 
 ### 11/04/2024
 Objetivos de hoy:
- - x
+ - 
+
+ ### 16/04/2024
+Objetivos de hoy:
+ - 
+
+ ### 17/04/2024
+Objetivos de hoy:
+ - 
