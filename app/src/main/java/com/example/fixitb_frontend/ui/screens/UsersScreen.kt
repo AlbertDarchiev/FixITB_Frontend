@@ -20,7 +20,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.fixitb_frontend.R
+import com.example.fixitb_frontend.ui.theme.Blue1
 import com.example.fixitb_frontend.ui.theme.SecondaryColor
+import com.example.fixitb_frontend.ui.theme.TertiaryColor
 
 data class User(val mail: String)
 
@@ -30,7 +32,7 @@ fun UserListItem(user: User, onConvertClick: () -> Unit) {
         modifier = Modifier
             .fillMaxSize()
             .padding(8.dp)
-            .background(SecondaryColor.copy(alpha = 1.0f), shape = RoundedCornerShape(5.dp))
+            .background(SecondaryColor.copy(alpha = 0.4f), shape = RoundedCornerShape(5.dp))
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Image(
@@ -43,7 +45,7 @@ fun UserListItem(user: User, onConvertClick: () -> Unit) {
                 Text(text = user.mail, style = MaterialTheme.typography.headlineSmall)
                 Spacer(modifier = Modifier.height(8.dp))
                 Button(
-                    colors = ButtonDefaults.buttonColors(containerColor = Color.Blue),
+                    colors = ButtonDefaults.buttonColors(containerColor = TertiaryColor),
                     onClick = onConvertClick) {
                     Text("Convertir a técnico")
                 }
@@ -78,7 +80,7 @@ fun UsersScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color.Blue.copy(alpha = 0.5f))) {
+            .background(color = Blue1.copy(alpha = 1.0f))) {
         Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
             Image(
                 modifier = Modifier.fillMaxWidth(),

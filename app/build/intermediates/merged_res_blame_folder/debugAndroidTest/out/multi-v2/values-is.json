@@ -4,24 +4,7 @@
             "outputFile": "com.example.fixitb_frontend.test.app-mergeDebugAndroidTestResources-32:/values-is/values-is.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\azizr\\.gradle\\caches\\transforms-3\\8e30cc407ad4df47db87309cff0d0f72\\transformed\\core-1.12.0\\res\\values-is\\values-is.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,150,257,354,454,557,661,772",
-                        "endColumns": "94,106,96,99,102,103,110,100",
-                        "endOffsets": "145,252,349,449,552,656,767,868"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,23",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,200,307,404,504,607,711,1990",
-                        "endColumns": "94,106,96,99,102,103,110,100",
-                        "endOffsets": "195,302,399,499,602,706,817,2086"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\azizr\\.gradle\\caches\\transforms-3\\e73445cea88ce4b450228e8ed3d41f8b\\transformed\\ui-release\\res\\values-is\\values-is.xml",
+                    "source": "C:\\Users\\azizr\\.gradle\\caches\\transforms-3\\9503bcf6dfd5f9a3ac07db12b06eb4ea\\transformed\\ui-release\\res\\values-is\\values-is.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -35,6 +18,23 @@
                         "startOffsets": "822,913,994,1093,1192,1277,1357,1452,1541,1623,1691,1759,1837,1920,2091,2168,2236",
                         "endColumns": "90,80,98,98,84,79,94,88,81,67,67,77,82,69,76,67,119",
                         "endOffsets": "908,989,1088,1187,1272,1352,1447,1536,1618,1686,1754,1832,1915,1985,2163,2231,2351"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\azizr\\.gradle\\caches\\transforms-3\\6f476f7e7b70cffb46c7a4a669fefe1e\\transformed\\core-1.12.0\\res\\values-is\\values-is.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,150,257,354,454,557,661,772",
+                        "endColumns": "94,106,96,99,102,103,110,100",
+                        "endOffsets": "145,252,349,449,552,656,767,868"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,23",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,200,307,404,504,607,711,1990",
+                        "endColumns": "94,106,96,99,102,103,110,100",
+                        "endOffsets": "195,302,399,499,602,706,817,2086"
                     }
                 }
             ]

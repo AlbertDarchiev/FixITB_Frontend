@@ -4,7 +4,7 @@
             "outputFile": "com.example.fixitb_frontend.app-mergeDebugResources-60:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\azizr\\.gradle\\caches\\transforms-3\\0a0af182420f2698925ad77154b66067\\transformed\\play-services-auth-19.2.0\\res\\values-watch-v20\\values.xml",
+                    "source": "C:\\Users\\azizr\\.gradle\\caches\\transforms-3\\60721cf3778b5af1a9bd731dead99d20\\transformed\\play-services-auth-19.2.0\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",
