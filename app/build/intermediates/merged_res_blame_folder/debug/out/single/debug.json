@@ -64,8 +64,16 @@
         "source": "com.example.fixitb_frontend.app-main-64:/drawable/img_logo_1.png"
     },
     {
+        "merged": "com.example.fixitb_frontend.app-merged_res-62:/drawable_bin.png.flat",
+        "source": "com.example.fixitb_frontend.app-main-64:/drawable/bin.png"
+    },
+    {
         "merged": "com.example.fixitb_frontend.app-merged_res-62:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "com.example.fixitb_frontend.app-main-64:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.fixitb_frontend.app-merged_res-62:/drawable_lionface.jpg.flat",
+        "source": "com.example.fixitb_frontend.app-main-64:/drawable/lionface.jpg"
     },
     {
         "merged": "com.example.fixitb_frontend.app-merged_res-62:/mipmap-mdpi_ic_launcher.webp.flat",
