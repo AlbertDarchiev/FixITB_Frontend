@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiViewModel {
 
-    private const val BASE_URL = "http://172.30.1.191:8080"
+    private const val BASE_URL = "http://172.30.4.168:8080"
 
     var gson = GsonBuilder()
         .setLenient()

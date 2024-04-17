@@ -4,7 +4,7 @@
             "outputFile": "com.example.fixitb_frontend.app-mergeDebugResources-60:/values-de/values-de.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\aglde\\.gradle\\caches\\transforms-3\\e73445cea88ce4b450228e8ed3d41f8b\\transformed\\ui-release\\res\\values-de\\values-de.xml",
+                    "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\e73445cea88ce4b450228e8ed3d41f8b\\transformed\\ui-release\\res\\values-de\\values-de.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\aglde\\.gradle\\caches\\transforms-3\\e58ac91d50c3560ecd3e10087830d5ba\\transformed\\material3-1.1.1\\res\\values-de\\values-de.xml",
+                    "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\e58ac91d50c3560ecd3e10087830d5ba\\transformed\\material3-1.1.1\\res\\values-de\\values-de.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,41 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\aglde\\.gradle\\caches\\transforms-3\\8e30cc407ad4df47db87309cff0d0f72\\transformed\\core-1.12.0\\res\\values-de\\values-de.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,153,255,355,455,563,668,786",
-                        "endColumns": "97,101,99,99,107,104,117,100",
-                        "endOffsets": "148,250,350,450,558,663,781,882"
-                    },
-                    "to": {
-                        "startLines": "6,7,8,9,10,11,12,85",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "587,685,787,887,987,1095,1200,9253",
-                        "endColumns": "97,101,99,99,107,104,117,100",
-                        "endOffsets": "680,782,882,982,1090,1195,1313,9349"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\aglde\\.gradle\\caches\\transforms-3\\1fd1be70ecbc0b475383d3d30814d315\\transformed\\play-services-basement-18.3.0\\res\\values-de\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "195",
-                        "endColumns": "140",
-                        "endOffsets": "335"
-                    },
-                    "to": {
-                        "startLines": "24",
-                        "startColumns": "4",
-                        "startOffsets": "2642",
-                        "endColumns": "144",
-                        "endOffsets": "2782"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\aglde\\.gradle\\caches\\transforms-3\\5be3762a067458219d2eca2de389b2b1\\transformed\\play-services-base-18.0.1\\res\\values-de\\values.xml",
+                    "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\5be3762a067458219d2eca2de389b2b1\\transformed\\play-services-base-18.0.1\\res\\values-de\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -89,7 +55,41 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\aglde\\.gradle\\caches\\transforms-3\\3f1a848ed5e7b8b718f650ee41bbf84a\\transformed\\browser-1.4.0\\res\\values-de\\values-de.xml",
+                    "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\1fd1be70ecbc0b475383d3d30814d315\\transformed\\play-services-basement-18.3.0\\res\\values-de\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "140",
+                        "endOffsets": "335"
+                    },
+                    "to": {
+                        "startLines": "24",
+                        "startColumns": "4",
+                        "startOffsets": "2642",
+                        "endColumns": "144",
+                        "endOffsets": "2782"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\8e30cc407ad4df47db87309cff0d0f72\\transformed\\core-1.12.0\\res\\values-de\\values-de.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,153,255,355,455,563,668,786",
+                        "endColumns": "97,101,99,99,107,104,117,100",
+                        "endOffsets": "148,250,350,450,558,663,781,882"
+                    },
+                    "to": {
+                        "startLines": "6,7,8,9,10,11,12,85",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "587,685,787,887,987,1095,1200,9253",
+                        "endColumns": "97,101,99,99,107,104,117,100",
+                        "endOffsets": "680,782,882,982,1090,1195,1313,9349"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\3f1a848ed5e7b8b718f650ee41bbf84a\\transformed\\browser-1.4.0\\res\\values-de\\values-de.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

@@ -23,6 +23,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -37,6 +38,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.fixitb_frontend.R
@@ -69,14 +71,15 @@ import kotlinx.coroutines.tasks.await
 import java.lang.Exception
 import retrofit2.Response
 
-
+object CurrentUser {
+    var user: FirebaseUser? = null
+}
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
             val navController = rememberNavController()
-
             var user by remember { mutableStateOf(Firebase.auth.currentUser) }
             val context = LocalContext.current
             val token = context.getString(R.string.google_client_id)
@@ -116,6 +119,7 @@ fun ALogin(navController: NavHostController, user: FirebaseUser?) {
             navController.navigate("login")
         }
         else{
+            CurrentUser.user = user
             Log.d("USER", user.email.toString())
             val userInfo = User(1, "tecnic", "albert1979djy@gmail.com")
 //            val userInfo = User(2, "admin", "albert1979djy@gmail.com", 1)
@@ -193,113 +197,8 @@ fun rememberFirebaseAuthLauncher(
 }
 
 
-@Composable
-fun LoginScreen1(navController: NavHostController) {
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.Magenta)
-        .blur(12.dp))
-    {
-        Image(
-            painter = painterResource(id = R.drawable.server_img_1),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop // Escala la imagen para llenar el espacio
-        )
-    }
-    Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-//        Spacer(modifier = Modifier.height(20.dp))
-        Image(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            alignment = Alignment.Center,
-            painter = painterResource(id = R.drawable.img_logo_1),
-            contentDescription = null,
-            contentScale = ContentScale.Crop
-        )
-        Spacer(modifier = Modifier.height(50.dp))
-        Text(
-            text = "Iniciar sesi贸",
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            color = Color.White,
-            style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)
-        )
-        LoginButton(navController)
-    }
-}
-
-
-@Composable
-private fun LoginButton(navController: NavController){
-    Button(onClick = {
-        Log.d("TAG", "XXXXXXXXXXXX")
-    },
-        colors = ButtonDefaults.buttonColors(containerColor = SecondaryColor),
-        modifier = Modifier
-            .width(250.dp)
-            .height(60.dp)
-    ) {
-        Row(verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Start,
-            modifier = Modifier
-                .height(60.dp)
-                .fillMaxWidth()) {
-            Image(
-                painter = painterResource(id = R.drawable.img_logo_google),
-                contentDescription = null,
-                modifier = Modifier
-                    .height(80.dp)
-                    .width(40.dp)
-            )
-            Spacer(modifier = Modifier.width(20.dp))
-            Text(
-                text = "Iniciar sesi贸",
-                color = TertiaryColor,
-                fontSize = 18.sp
-            )
-        }
-    }
-}
-@Composable
-fun SplashScreen(navController: NavHostController) {
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.Magenta)
-        .blur(12.dp))
-    {
-        Image(
-            painter = painterResource(id = R.drawable.server_img_1),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop // Escala la imagen para llenar el espacio
-        )
-    }
-    Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-//        Spacer(modifier = Modifier.height(20.dp))
-        Image(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            alignment = Alignment.Center,
-            painter = painterResource(id = R.drawable.img_logo_1),
-            contentDescription = null,
-            contentScale = ContentScale.Crop
-        )
-        Spacer(modifier = Modifier.height(50.dp))
-        Text(
-            text = "Iniciar sesi贸",
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            color = Color.White,
-            style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)
-        )
-        LoginButton(navController)
-    }
-}
-
-
-
-
 //@Preview(
 //    showBackground = true,
 //    widthDp = 320,
 //    heightDp = 640
 //)
-
-

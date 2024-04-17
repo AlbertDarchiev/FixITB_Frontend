@@ -6,10 +6,10 @@ data class Incidence(
     val image : String,
     val description: String,
     val openDate: String,
-    val closeDate: String,
+    val closeDate: String?,
     val status: String,
     val classId: Int,
-    val userAssigned: String,
+    val userAssigned: String?,
     val codeMain: String,
     val codeMovistar: Int
 )
