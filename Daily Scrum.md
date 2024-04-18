@@ -40,3 +40,9 @@ Objetivos de hoy:
 Objetivos de hoy:
  - UI de la pantalla de lista incidencias
  - UI de la pantalla de lista usuarios
+
+ ### 18/04/2024    
+Objetivos de hoy:
+ - Alan: Endpoint y funcion POST incidencias
+ - Roman: Comenzar con la pantalla Crear Incidencia
+ - Albert: Implementar bottom Navigation en Compose
