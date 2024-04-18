@@ -248,8 +248,11 @@ fun MyAppContent(
                 composable(MyNavigationRoute.INCIDENCES) {
                     IncidencesScreen(navController)
                 }
+                composable(MyNavigationRoute.INCIDENCE_POST) {
+                    PostIncidenceScreen()
+                }
                 composable(MyNavigationRoute.USERS) {
-                    HomeScreen()
+                    UsersScreen()
                 }
                 composable(MyNavigationRoute.SPLASH) {
                     ALogin(navController = navController, user = user)

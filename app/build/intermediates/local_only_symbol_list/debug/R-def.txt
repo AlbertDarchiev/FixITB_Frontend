@@ -7,10 +7,12 @@ color purple_700
 color teal_200
 color teal_700
 color white
+drawable bin
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable img_logo_1
 drawable img_logo_google
+drawable lionface
 drawable server_img_1
 font rowdies_bold
 font rowdies_light

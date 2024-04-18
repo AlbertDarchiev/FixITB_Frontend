@@ -1,18 +1,18 @@
-#Thu Apr 18 23:33:37 CEST 2024
+#Fri Apr 19 00:38:01 CEST 2024
 base.0=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
-base.3=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
-base.4=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
-base.5=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
-base.6=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\13\\classes.dex
+base.3=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\13\\classes.dex
+base.4=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+base.5=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
+base.6=C\:\\Users\\Albert Darchiev\\Documents\\AndroidStudioProjects\\FixITB_Frontend\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=12/classes.dex
-path.3=1/classes.dex
-path.4=5/classes.dex
-path.5=classes2.dex
-path.6=13/classes.dex
+path.3=13/classes.dex
+path.4=1/classes.dex
+path.5=5/classes.dex
+path.6=classes2.dex
 renamed.0=classes.dex
 renamed.1=classes2.dex
 renamed.2=classes3.dex

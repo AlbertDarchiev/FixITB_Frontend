@@ -23,18 +23,26 @@ Objetivos de hoy:
 Objetivos de hoy:
  - Crear pantalla de Login
 
-### 08/04/2024
+### 08/04/2024    
 Objetivos de hoy:
  - Establecer conexion entre la APP y la API
 
-### 11/04/2024
+### 11/04/2024    
 Objetivos de hoy:
- - 
+ - Guardar los usuarios nuevos que se loguean
 
- ### 16/04/2024
+ ### 16/04/2024    
 Objetivos de hoy:
- - 
+ - GET para recivir incidencias y usuarios
+ - Investigar como implementar BottomNav en Compose
 
- ### 17/04/2024
+ ### 17/04/2024    
 Objetivos de hoy:
- - 
+ - UI de la pantalla de lista incidencias
+ - UI de la pantalla de lista usuarios
+
+ ### 18/04/2024    
+Objetivos de hoy:
+ - Alan: Endpoint y funcion POST incidencias
+ - Roman: Comenzar con la pantalla Crear Incidencia
+ - Albert: Implementar bottom Navigation en Compose

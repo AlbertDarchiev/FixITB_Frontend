@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Permiso para acceder a internet -->
     <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- Permisos para acceder a la cámara -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,23 +23,24 @@
         android:usesCleartextTraffic="true">
 
         <activity
-
             android:name=".screens.LoginScreen"
             android:exported="false"
             android:label="@string/title_activity_login_screen"
             android:theme="@style/Theme.FixItb_frontend" />
-        <activity
 
-        android:name=".ui.screens.MainActivity"
+        <activity
+            android:name=".ui.screens.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.FixItb_frontend">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
     </application>
 
 </manifest>

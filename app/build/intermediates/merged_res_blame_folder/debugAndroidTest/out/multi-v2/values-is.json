@@ -4,7 +4,7 @@
             "outputFile": "com.example.fixitb_frontend.test.app-mergeDebugAndroidTestResources-32:/values-is/values-is.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\2ce933988c9cac4ea88cfb8593708444\\transformed\\ui-release\\res\\values-is\\values-is.xml",
+                    "source": "C:\\Users\\azizr\\.gradle\\caches\\transforms-3\\9503bcf6dfd5f9a3ac07db12b06eb4ea\\transformed\\ui-release\\res\\values-is\\values-is.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Albert Darchiev\\.gradle\\caches\\transforms-3\\4b9f6b18975a68ba499214f7563059d5\\transformed\\core-1.12.0\\res\\values-is\\values-is.xml",
+                    "source": "C:\\Users\\azizr\\.gradle\\caches\\transforms-3\\6f476f7e7b70cffb46c7a4a669fefe1e\\transformed\\core-1.12.0\\res\\values-is\\values-is.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
