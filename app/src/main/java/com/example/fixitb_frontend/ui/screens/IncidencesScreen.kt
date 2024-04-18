@@ -17,6 +17,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,32 +34,48 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.fixitb_frontend.R
 import com.example.fixitb_frontend.models.Incidence
+import com.example.fixitb_frontend.models.MyNavigationRoute
 import com.example.fixitb_frontend.ui.composables.ComposableBoldText
 import com.example.fixitb_frontend.ui.composables.ComposableNormalText
 import com.example.fixitb_frontend.ui.theme.Blue1
 import com.example.fixitb_frontend.ui.theme.SecondaryColor
+import com.example.fixitb_frontend.ui.theme.rowdiesFontFamily
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 val usersList = listOf(
-    Incidence(1, "Portatil", "albert@gmail.com", "description", "2024-04-22", "2024-04-22", "open", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
-    Incidence(1, "Portatil", "albert@gmail.com", "description", "2024-04-22", "2024-04-22", "open", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
-    Incidence(1, "Teclado", "albert@gmail.com", "description", "2024-04-22", "2024-04-22", "closed", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
-    Incidence(1, "Ordenador", "albert@gmail.com", "description", "2024-04-22", null, "revision", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
-    Incidence(1, "Teclado", "albert@gmail.com", "description", "2024-04-22", "2024-04-22", "closed", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
-    Incidence(1, "Monitor", "albert@gmail.com", "description", "2024-04-22", "2024-04-22", "open", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
+    Incidence(1, "Monitor", "albert@gmail.com", "Boton del monitor no funciona","description", "2024-04-22", "2024-04-22", "open", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
+    Incidence(1, "Altre", "albert@gmail.com", "Falta monitor", "description", "2024-04-22", "2024-04-22", "open", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
+    Incidence(1, "Monitor", "albert@gmail.com", "El monitor esta trencat","description", "2024-04-22", "2024-04-22", "closed", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
+    Incidence(1, "Altre", "albert@gmail.com", "Falta cable ethernet","description", "2024-04-22", null, "revision", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
+    Incidence(1, "Teclado", "albert@gmail.com", "No hi ha teclat","description", "2024-04-22", "2024-04-22", "closed", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
+    Incidence(1, "Ordinador", "albert@gmail.com", "Ordinador no arranca","description", "2024-04-22", "2024-04-22", "open", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
     )
 
 @Composable
 fun IncidencesScreen(
     navController: NavHostController,
 ) {
-
     Box(modifier = Modifier
         .fillMaxSize()
         .background(Blue1)
         )
     {
+        Button(onClick = {
+            Firebase.auth.signOut()
+            navController.navigate(MyNavigationRoute.LOGIN)
+        }) {
+            Column {
+                Image(
+                    imageVector = Icons.Default.ExitToApp,
+                    contentDescription = "EXIT",
+                    modifier = Modifier.size(24.dp)
+                )
+                Text("Cerrar sesión", fontSize = 10.sp)
+            }
+
+        }
+
         Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             Image(
                 modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -68,13 +86,14 @@ fun IncidencesScreen(
             )
             Spacer(modifier = Modifier.height(20.dp))
             Text(
-                text = "Incidencies publicades",
+                text = "INCIDÈNCIES",
+                fontFamily = rowdiesFontFamily,
+                fontSize = 30.sp,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
                 color = Color.White,
-                style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)
             )
             LazyColumn(
-                modifier = Modifier.fillMaxHeight(0.8f),
+                modifier = Modifier.fillMaxHeight(1f),
                 contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
             ) {
                 items(
@@ -83,32 +102,6 @@ fun IncidencesScreen(
                         incidenceListItem(incidence = it)
                     })
             }
-            Spacer(modifier = Modifier.height(10.dp))
-
-            Text(
-                text = "- o -",
-                color = Color.White,
-                style = androidx.compose.ui.text.TextStyle(fontSize = 15.sp)
-            )
-
-            Spacer(modifier = Modifier.height(15.dp))
-
-            Box(modifier = Modifier
-                .fillMaxSize()
-                .padding(start = 20.dp, end = 20.dp)
-                .background(SecondaryColor.copy(alpha = 0.3f), shape = RoundedCornerShape(20.dp))
-            ){
-                Column(horizontalAlignment = Alignment.CenterHorizontally, ) {
-                 Button(onClick = {
-                     Firebase.auth.signOut()
-                     navController.navigate("login")
-//                     user = null
-            }) {
-                Text("Cerrar sesión")
-            }
-                    }
-
-                }
             }
         }
     }
@@ -126,7 +119,7 @@ fun incidenceListItem(incidence: Incidence) {
         .background(SecondaryColor.copy(alpha = 0.4f), shape = RoundedCornerShape(5.dp))
     ){
         Column(modifier = Modifier.padding(8.dp)) {
-            ComposableBoldText(text = "Boton monitor no funciona ", fontSize = 16)
+            ComposableBoldText(text = incidence.title, fontSize = 16)
             ComposableNormalText(text = "Dispositiu: "+incidence.device, fontSize = 14)
             Row {
                 ComposableNormalText(text = incidence.openDate+" - ", fontSize = 14)
@@ -156,7 +149,7 @@ fun incidenceListItem(incidence: Incidence) {
     widthDp = 320,
     heightDp = 640
 )@Composable
-fun IncidencesScreen() {
+fun IncidencesScreenPrev() {
     val navController = rememberNavController()
     IncidencesScreen(navController = navController)
 }

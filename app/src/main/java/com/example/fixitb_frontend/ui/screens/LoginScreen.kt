@@ -61,7 +61,7 @@ fun LoginScreen(launcher : ManagedActivityResultLauncher<Intent, ActivityResult>
         )
         Spacer(modifier = Modifier.height(50.dp))
         Text(
-            text = "Iniciar sesiÃ³",
+            text = "Iniciar sesió",
             modifier = Modifier.align(Alignment.CenterHorizontally),
             color = Color.White,
             style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)

@@ -1,3 +1,6 @@
+com.example.fixitb_frontend:font/rowdies_regular = 0x7f0e0002
+com.example.fixitb_frontend:font/rowdies_light = 0x7f0e0001
+com.example.fixitb_frontend:font/rowdies_bold = 0x7f0e0000
 com.example.fixitb_frontend:id/accessibility_custom_action_5 = 0x7f05001c
 com.example.fixitb_frontend:id/time = 0x7f05005f
 com.example.fixitb_frontend:string/google_api_key = 0x7f0a004d

@@ -10,6 +10,9 @@ import retrofit2.http.Query
 interface UserService {
     @GET("/users")
     suspend fun getUsers(): List<User>
+
+    @GET("/users")
+    suspend fun getUserByEmail(@Query("email") email: String): Response<User>
     @POST("/users")
     suspend fun insertUser(@Body userData: User): Response<User>
 }
