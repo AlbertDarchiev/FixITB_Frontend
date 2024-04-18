@@ -136,7 +136,16 @@ fun PostIncidenceScreen() {
 
 //Comineza el dropdown menu para que dispositivo es
 
-            val listAula = listOf("Aula 101","Aula 201","Aula 301")
+            val listAula = listOf("Aula 001","Aula 002","Aula 003","Aula 004","Aula 005","Aula 006",
+                "Aula 007","Aula 008","Aula 009","Aula 010","Aula 011","Aula 012","Aula 013","Aula 014",
+                "Aula 015","Aula 016","Aula 017","Aula 018","Aula 019","Aula 020","Aula 021","Aula 022",
+                "Aula 023","Aula 024","Aula 025","Aula 026","Aula 027","Aula 099",
+                "Aula 101","Aula 102","Aula 103","Aula 104","Aula 105","Aula 106","Aula 107","Aula 108",
+                "Aula 109","Aula 110","Aula 111","Aula 112",
+                "Aula 201","Aula 202","Aula 203","Aula 204","Aula 205","Aula 206","Aula 207","Aula 208",
+                "Aula 209","Aula 210","Aula 211","Aula 212",
+                "Aula 301","Aula 302","Aula 303","Aula 304","Aula 305","Aula 306","Aula 307","Aula 308",
+                "Aula 309","Aula 310","Aula 311","Aula 312")
 
             var selectedTextAula by remember { mutableStateOf(listAula[0]) }
 
