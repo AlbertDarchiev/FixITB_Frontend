@@ -3,6 +3,7 @@ package com.example.fixitb_frontend.ui.screens
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.ManagedActivityResultLauncher
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -58,7 +59,6 @@ import java.lang.Exception
 object CurrentUser {
     var userFireb: FirebaseUser? = null
     var user : User? = null
-
 }
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,7 +66,6 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             val navController = rememberNavController()
-
 
             val navigateAction = remember(navController) {
                 MyNavigationActions(navController)
@@ -90,15 +89,6 @@ suspend fun getUser(user: FirebaseUser): User {
 @Composable
 fun ALogin(navController: NavHostController, user: FirebaseUser?) {
     Column {
-
-//        LaunchedEffect(user) {
-//            if (user != null) {
-//                val role = getUser(user)
-//            } else {
-//                navController.navigate(MyNavigationRoute.LOGIN)
-//            }
-//        }
-
         // HACER GET A API CON (user.email) PARA VER EL ROL DEL USUARIO CON ESE CORREO
         if (user == null){
             navController.navigate(MyNavigationRoute.LOGIN)
@@ -173,6 +163,7 @@ fun rememberFirebaseAuthLauncher(
 
                     }
                     catch (e: Exception){
+
                         Log.d("LOGIN - ERROR", e.toString())
                     }
                 }

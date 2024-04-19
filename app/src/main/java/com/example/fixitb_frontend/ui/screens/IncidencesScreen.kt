@@ -35,8 +35,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.fixitb_frontend.R
 import com.example.fixitb_frontend.models.Incidence
 import com.example.fixitb_frontend.models.MyNavigationRoute
-import com.example.fixitb_frontend.ui.composables.ComposableBoldText
-import com.example.fixitb_frontend.ui.composables.ComposableNormalText
+import com.example.fixitb_frontend.ui.composables.ComposableBoldText2
+import com.example.fixitb_frontend.ui.composables.ComposableNormalText2
 import com.example.fixitb_frontend.ui.theme.Blue1
 import com.example.fixitb_frontend.ui.theme.SecondaryColor
 import com.example.fixitb_frontend.ui.theme.rowdiesFontFamily
@@ -44,12 +44,12 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 val usersList = listOf(
-    Incidence(1, "Monitor", "albert@gmail.com", "Boton del monitor no funciona","description", "2024-04-22", "2024-04-22", "open", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
-    Incidence(1, "Altre", "albert@gmail.com", "Falta monitor", "description", "2024-04-22", "2024-04-22", "open", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
-    Incidence(1, "Monitor", "albert@gmail.com", "El monitor esta trencat","description", "2024-04-22", "2024-04-22", "closed", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
-    Incidence(1, "Altre", "albert@gmail.com", "Falta cable ethernet","description", "2024-04-22", null, "revision", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
-    Incidence(1, "Teclado", "albert@gmail.com", "No hi ha teclat","description", "2024-04-22", "2024-04-22", "closed", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
-    Incidence(1, "Ordinador", "albert@gmail.com", "Ordinador no arranca","description", "2024-04-22", "2024-04-22", "open", 1, "albert.darchiev.7e6@itb.cat", "123123", 123123),
+    Incidence(1, "Monitor", "albert@gmail.com", "Boton del monitor no funciona","description", "2024-04-22", "2024-04-22", "open", 306, "albert.darchiev.7e6@itb.cat", "123123", 123123),
+    Incidence(1, "Altre", "albert@gmail.com", "Falta monitor", "description", "2024-04-22", "2024-04-22", "open", 209, "albert.darchiev.7e6@itb.cat", "123123", 123123),
+    Incidence(1, "Monitor", "albert@gmail.com", "El monitor esta trencat","description", "2024-04-22", "2024-04-22", "closed", 309, "albert.darchiev.7e6@itb.cat", "123123", 123123),
+    Incidence(1, "Altre", "albert@gmail.com", "Falta cable ethernet","description", "2024-04-22", null, "revision", 309, "albert.darchiev.7e6@itb.cat", "123123", 123123),
+    Incidence(1, "Teclado", "albert@gmail.com", "No hi ha teclat","description", "2024-04-22", "2024-04-22", "closed", 104, "albert.darchiev.7e6@itb.cat", "123123", 123123),
+    Incidence(1, "Ordinador", "albert@gmail.com", "Ordinador no arranca","description", "2024-04-22", "2024-04-22", "open", 201, "albert.darchiev.7e6@itb.cat", "123123", 123123),
     )
 
 @Composable
@@ -119,12 +119,12 @@ fun incidenceListItem(incidence: Incidence) {
         .background(SecondaryColor.copy(alpha = 0.4f), shape = RoundedCornerShape(5.dp))
     ){
         Column(modifier = Modifier.padding(8.dp)) {
-            ComposableBoldText(text = incidence.title, fontSize = 16)
-            ComposableNormalText(text = "Dispositiu: "+incidence.device, fontSize = 14)
+            ComposableBoldText2(text = incidence.title, fontSize = 16)
+            ComposableNormalText2(text = "Aula ${incidence.classNum} · ${incidence.device}", fontSize = 14)
             Row {
-                ComposableNormalText(text = incidence.openDate+" - ", fontSize = 14)
+                ComposableNormalText2(text = incidence.openDate+" - ", fontSize = 14)
                 if (incidence.closeDate != null)
-                    ComposableNormalText(text = incidence.closeDate, fontSize = 14)
+                    ComposableNormalText2(text = incidence.closeDate, fontSize = 14)
                 Spacer(modifier = Modifier.weight(1f))
 
                     Box(
