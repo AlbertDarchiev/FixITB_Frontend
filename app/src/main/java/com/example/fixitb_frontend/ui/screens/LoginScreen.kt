@@ -125,10 +125,6 @@ fun LoginScreen(launcher : ManagedActivityResultLauncher<Intent, ActivityResult>
             )
         }
     }
-    if (isLoading && context != null) {
-        Toast.makeText(context, "Problema de conexió", Toast.LENGTH_SHORT).show()
-        isLoading = false
-    }
 }
 @Composable
 private fun LoginButton(onSignInClick: () -> Unit, isLoading: Boolean){
