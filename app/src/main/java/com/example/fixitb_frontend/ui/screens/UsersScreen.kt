@@ -23,6 +23,7 @@ import com.example.fixitb_frontend.R
 import com.example.fixitb_frontend.ui.theme.Blue1
 import com.example.fixitb_frontend.ui.theme.SecondaryColor
 import com.example.fixitb_frontend.ui.theme.TertiaryColor
+import com.example.fixitb_frontend.ui.theme.rowdiesFontFamily
 
 data class User(val mail: String)
 
@@ -89,9 +90,10 @@ fun UsersScreen() {
             )
             Spacer(modifier = Modifier.height(20.dp))
             Text(
-                text = "Usuaris",
+                text = "USUARIS",
                 color = Color.White,
-                style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)
+                fontSize = 30.sp,
+                fontFamily = rowdiesFontFamily,
             )
             Spacer(modifier = Modifier.height(20.dp))
             LazyColumn(

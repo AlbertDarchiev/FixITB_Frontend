@@ -10,66 +10,55 @@ import androidx.activity.compose.setContent
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Text
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.blur
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.example.fixitb_frontend.R
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import coil.compose.rememberAsyncImagePainter
-import com.example.fixitb_frontend.api.ApiViewModel
 import com.example.fixitb_frontend.api.ApiViewModel.userService
+import com.example.fixitb_frontend.models.MyNavigationActions
+import com.example.fixitb_frontend.models.MyNavigationDestination
+import com.example.fixitb_frontend.models.MyNavigationRoute
 import com.example.fixitb_frontend.models.User
-
+import com.example.fixitb_frontend.models.navigationDestinations
+import com.example.fixitb_frontend.ui.theme.PrimaryColor
 import com.example.fixitb_frontend.ui.theme.SecondaryColor
-import com.example.fixitb_frontend.ui.theme.TertiaryColor
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import java.lang.Exception
-import retrofit2.Response
 
-
+object CurrentUser {
+    var userFireb: FirebaseUser? = null
+    var user : User? = null
+}
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,55 +66,45 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
 
-            var user by remember { mutableStateOf(Firebase.auth.currentUser) }
-            val context = LocalContext.current
-            val token = context.getString(R.string.google_client_id)
-            val launcher = rememberFirebaseAuthLauncher(
-                navController,
-                onAuthComplete = { result ->
-                    user = result.user
-                },
-                onAuthError = { e ->
-                    user = null
-                    Log.d("Google Auth", "Error signing in", e)
-                }
-            )
-
-            NavHost(navController = navController, startDestination = "splash") {
-                composable("login") {
-                    LoginScreen(launcher, token, context)
-                }
-                composable("main") {
-                    IncidencesScreen(navController)
-                }
-                composable("splash") {
-                    ALogin(navController, user)
-                }
-
+            val navigateAction = remember(navController) {
+                MyNavigationActions(navController)
             }
+            val navBackStackEntry by navController.currentBackStackEntryAsState()
+            val selectedDestination = navBackStackEntry?.destination?.route ?: MyNavigationRoute.INCIDENCES
+            MyAppContent(
+                navController = navController,
+                selectedDestination = selectedDestination,
+                navigateTopLevelDestination = navigateAction::navigateTo
+            )
         }
     }
 }
+
+suspend fun getUser(user: FirebaseUser): User {
+    val response = userService.getUserByEmail(user?.email.toString())
+    return response.body()!!
+}
+
 @Composable
 fun ALogin(navController: NavHostController, user: FirebaseUser?) {
     Column {
 
         // HACER GET A API CON (user.email) PARA VER EL ROL DEL USUARIO CON ESE CORREO
-
         if (user == null){
-            navController.navigate("login")
+            navController.navigate(MyNavigationRoute.LOGIN)
         }
         else{
+            CurrentUser.userFireb = user
             Log.d("USER", user.email.toString())
             val userInfo = User(1, "tecnic", "albert1979djy@gmail.com")
 //            val userInfo = User(2, "admin", "albert1979djy@gmail.com", 1)
 //            val userInfo = User(3, "student", "albert1979djy@gmail.com", 1)
             if (userInfo.role == "admin")
-                navController.navigate("main")
+                navController.navigate(MyNavigationRoute.INCIDENCES)
             else if (userInfo.role == "tecnic")
-                navController.navigate("main")
+                navController.navigate(MyNavigationRoute.INCIDENCES)
             else
-                navController.navigate("main")
+                navController.navigate(MyNavigationRoute.INCIDENCES)
 //            Image(
 //                painter = rememberAsyncImagePainter(user?.photoUrl),
 //                contentDescription = null,
@@ -174,11 +153,14 @@ fun rememberFirebaseAuthLauncher(
                         Log.d("LOGIN - UserRole", response.body()!!.role)
 
                         if (responseUser.role == "admin")
-                            navController.navigate("main")
+                            navController.navigate(MyNavigationRoute.INCIDENCES)
+
                         else if (responseUser.role == "tecnic")
-                            navController.navigate("main")
+                            navController.navigate(MyNavigationRoute.INCIDENCES)
+
                         else
-                            navController.navigate("main")
+                            navController.navigate(MyNavigationRoute.INCIDENCES)
+
                     }
                     catch (e: Exception){
                         Log.d("LOGIN - ERROR", e.toString())
@@ -192,114 +174,99 @@ fun rememberFirebaseAuthLauncher(
     }
 }
 
-
 @Composable
-fun LoginScreen1(navController: NavHostController) {
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.Magenta)
-        .blur(12.dp))
-    {
-        Image(
-            painter = painterResource(id = R.drawable.server_img_1),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop // Escala la imagen para llenar el espacio
-        )
-    }
-    Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-//        Spacer(modifier = Modifier.height(20.dp))
-        Image(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            alignment = Alignment.Center,
-            painter = painterResource(id = R.drawable.img_logo_1),
-            contentDescription = null,
-            contentScale = ContentScale.Crop
-        )
-        Spacer(modifier = Modifier.height(50.dp))
-        Text(
-            text = "Iniciar sesi贸",
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            color = Color.White,
-            style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)
-        )
-        LoginButton(navController)
-    }
-}
-
-
-@Composable
-private fun LoginButton(navController: NavController){
-    Button(onClick = {
-        Log.d("TAG", "XXXXXXXXXXXX")
-    },
-        colors = ButtonDefaults.buttonColors(containerColor = SecondaryColor),
-        modifier = Modifier
-            .width(250.dp)
-            .height(60.dp)
+fun MyBottomNavigation(
+    selectedDestination: String,
+    navigateToDestination: (MyNavigationDestination) -> Unit
+){
+    NavigationBar(modifier = Modifier.fillMaxWidth().fillMaxHeight(0.08f),
+        containerColor = SecondaryColor,
     ) {
-        Row(verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Start,
-            modifier = Modifier
-                .height(60.dp)
-                .fillMaxWidth()) {
-            Image(
-                painter = painterResource(id = R.drawable.img_logo_google),
-                contentDescription = null,
-                modifier = Modifier
-                    .height(80.dp)
-                    .width(40.dp)
-            )
-            Spacer(modifier = Modifier.width(20.dp))
-            Text(
-                text = "Iniciar sesi贸",
-                color = TertiaryColor,
-                fontSize = 18.sp
+        navigationDestinations.forEach { destination ->
+            NavigationBarItem(
+                colors = NavigationBarItemDefaults.colors(
+                    selectedIconColor = PrimaryColor,
+                    unselectedIconColor = PrimaryColor
+                ),
+                selected = destination.route == selectedDestination,
+                onClick = {
+                    navigateToDestination(destination)
+                },
+                icon = {
+                    Image(
+                        imageVector = destination.selectedIcon,
+                        contentDescription = destination.iconText,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
             )
         }
     }
 }
+
 @Composable
-fun SplashScreen(navController: NavHostController) {
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.Magenta)
-        .blur(12.dp))
-    {
-        Image(
-            painter = painterResource(id = R.drawable.server_img_1),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop // Escala la imagen para llenar el espacio
-        )
-    }
-    Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-//        Spacer(modifier = Modifier.height(20.dp))
-        Image(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            alignment = Alignment.Center,
-            painter = painterResource(id = R.drawable.img_logo_1),
-            contentDescription = null,
-            contentScale = ContentScale.Crop
-        )
-        Spacer(modifier = Modifier.height(50.dp))
-        Text(
-            text = "Iniciar sesi贸",
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            color = Color.White,
-            style = androidx.compose.ui.text.TextStyle(fontSize = 30.sp)
-        )
-        LoginButton(navController)
+fun MyAppContent(
+    modifier: Modifier = Modifier,
+    navController: NavHostController,
+    selectedDestination: String,
+    navigateTopLevelDestination: (MyNavigationDestination) -> Unit,
+) {
+    var user by remember { mutableStateOf(Firebase.auth.currentUser)}
+    val context = LocalContext.current
+    val token = context.getString(R.string.google_client_id)
+    val launcher = rememberFirebaseAuthLauncher(
+        navController,
+        onAuthComplete = { result ->
+            user = result.user
+        },
+        onAuthError = { e ->
+            user = null
+            Log.d("Google Auth", "Error signing in", e)
+        }
+    )
+
+    val currentRoute by navController.currentBackStackEntryAsState()
+    val showBottomNavigation = rememberSaveable { mutableStateOf(true) }
+
+    Row(modifier = modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            NavHost(
+                modifier = Modifier.weight(1f),
+                navController = navController,
+                startDestination = MyNavigationRoute.SPLASH
+            ) {
+                composable(MyNavigationRoute.INCIDENCES) {
+                    IncidencesScreen(navController)
+                }
+                composable(MyNavigationRoute.INCIDENCE_POST) {
+                    PostIncidenceScreen()
+                }
+                composable(MyNavigationRoute.USERS) {
+                    UsersScreen()
+                }
+                composable(MyNavigationRoute.SPLASH) {
+                    ALogin(navController = navController, user = user)
+                }
+                composable(MyNavigationRoute.LOGIN) {
+                    LoginScreen(launcher, token, context)
+                }
+
+            }
+
+            // OCULTAR EL BOTTOM NAVIGATION EN SPLASH Y LOGIN
+            if (showBottomNavigation.value && currentRoute?.destination?.route !in listOf(
+                    MyNavigationRoute.SPLASH,
+                    MyNavigationRoute.LOGIN)) {
+                MyBottomNavigation(
+                    selectedDestination = selectedDestination,
+                    navigateToDestination = navigateTopLevelDestination
+                )
+            }
+        }
     }
 }
-
-
-
-
 //@Preview(
 //    showBackground = true,
 //    widthDp = 320,
 //    heightDp = 640
 //)
-
-

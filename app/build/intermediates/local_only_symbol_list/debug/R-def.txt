@@ -14,6 +14,9 @@ drawable img_logo_1
 drawable img_logo_google
 drawable lionface
 drawable server_img_1
+font rowdies_bold
+font rowdies_light
+font rowdies_regular
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name

@@ -11,10 +11,10 @@
     <string name="current_key_api">AIzaSyAdhPdhF392ArSv6NzzEHAoULPlOiiil7Y</string>
     <string name="default_web_client_id" translatable="false">115865438371-cf82nuu576brl30oqnh4qmk1d6gop95f.apps.googleusercontent.com</string>
     <string name="gcm_defaultSenderId" translatable="false">115865438371</string>
-    <string name="google_api_key" translatable="false">AIzaSyAdhPdhF392ArSv6NzzEHAoULPlOiiil7Y</string>
+    <string name="google_api_key" translatable="false">@string/current_key_api</string>
     <string name="google_app_id" translatable="false">@string/mobilesdk_app_id</string>
     <string name="google_client_id">115865438371-cf82nuu576brl30oqnh4qmk1d6gop95f.apps.googleusercontent.com</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAdhPdhF392ArSv6NzzEHAoULPlOiiil7Y</string>
+    <string name="google_crash_reporting_api_key" translatable="false">@string/current_key_api</string>
     <string name="google_storage_bucket" translatable="false">fix-itb.appspot.com</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="mobilesdk_app_id">1:115865438371:android:d1dcd9e4ef305948cb5716</string>
