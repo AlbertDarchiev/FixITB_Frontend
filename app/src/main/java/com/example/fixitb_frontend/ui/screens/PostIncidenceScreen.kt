@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -39,6 +40,8 @@ import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.example.fixitb_frontend.R
 import com.example.fixitb_frontend.ui.theme.Blue1
+import com.example.fixitb_frontend.ui.theme.PrimaryColor
+import com.example.fixitb_frontend.ui.theme.TertiaryColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -215,7 +218,7 @@ fun PostIncidenceScreen() {
                 modifier = Modifier.fillMaxWidth(),
                 label = { Text("Ingrese su incidencia") }
             )
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
 //Acaba textfields
 // insertar imagen
@@ -230,6 +233,7 @@ fun PostIncidenceScreen() {
             }
             Button(
                 modifier = Modifier,
+                colors = ButtonDefaults.buttonColors(containerColor = TertiaryColor),
                 onClick = {
                     // Lanzar la intención para tomar la foto
                     takePicture.launch(imageUri)
@@ -244,8 +248,21 @@ fun PostIncidenceScreen() {
                 )
             }
 
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(180.dp))
 
+
+
+//boton para publicar el post
+
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(containerColor = PrimaryColor),
+                onClick = {
+                    // Logica de la funcionalidad
+                }
+            ) {
+                Text("Publicar Incidencia")
+            }
 
 
 
