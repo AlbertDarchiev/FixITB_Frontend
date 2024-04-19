@@ -3,6 +3,7 @@ package com.example.fixitb_frontend.ui.screens
 import android.content.Context
 import android.content.Intent
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.compose.ManagedActivityResultLauncher
 import androidx.activity.result.ActivityResult
 import androidx.compose.foundation.Image
@@ -123,6 +124,10 @@ fun LoginScreen(launcher : ManagedActivityResultLauncher<Intent, ActivityResult>
                 fontWeight = Light,
             )
         }
+    }
+    if (isLoading && context != null) {
+        Toast.makeText(context, "Problema de conexió", Toast.LENGTH_SHORT).show()
+        isLoading = false
     }
 }
 @Composable
