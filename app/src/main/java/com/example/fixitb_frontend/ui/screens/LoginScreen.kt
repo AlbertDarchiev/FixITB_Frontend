@@ -1,5 +1,6 @@
 package com.example.fixitb_frontend.ui.screens
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.util.Log
@@ -24,12 +25,14 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -46,11 +49,16 @@ import com.example.fixitb_frontend.ui.theme.PrimaryColor
 import com.example.fixitb_frontend.ui.theme.SecondaryColor
 import com.example.fixitb_frontend.ui.theme.rowdiesFontFamily
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 
 @Composable
-fun LoginScreen(launcher : ManagedActivityResultLauncher<Intent, ActivityResult>? = null, token : String? = null, context: Context? = null) {
-    var isLoading by remember { mutableStateOf(false) }
+fun LoginScreen(launcher :
+                ManagedActivityResultLauncher<Intent, ActivityResult>? = null,
+                token : String? = null,
+                context: Context? = null,
+                isLoadingState : MutableState<Boolean>? = mutableStateOf(false)) {
+
 
     Box(modifier = Modifier
         .fillMaxSize()
@@ -88,16 +96,16 @@ fun LoginScreen(launcher : ManagedActivityResultLauncher<Intent, ActivityResult>
         Spacer(modifier = Modifier.height(200.dp))
 
         LoginButton(onSignInClick = {
-            isLoading = true
+            isLoadingState!!.value = true
             val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(token!!)
                 .requestEmail()
                 .build()
 
             val googleSignInClient = GoogleSignIn.getClient(context, gso)
+            googleSignInClient.signOut()
             launcher!!.launch(googleSignInClient.signInIntent)
-        },
-            isLoading = isLoading)
+        },isLoading = isLoadingState!!.value)
 
         Spacer(modifier = Modifier.fillMaxHeight(0.70f))
         Column(modifier = Modifier
@@ -127,17 +135,21 @@ fun LoginScreen(launcher : ManagedActivityResultLauncher<Intent, ActivityResult>
     }
 }
 @Composable
-private fun LoginButton(onSignInClick: () -> Unit, isLoading: Boolean){
+private fun LoginButton(onSignInClick: () -> Unit, isLoading: Boolean ){
+
     Button(onClick = onSignInClick,
-        colors = ButtonDefaults.buttonColors(containerColor = SecondaryColor),
+        colors = ButtonDefaults.buttonColors(containerColor = SecondaryColor, disabledContainerColor = SecondaryColor.copy(alpha = 0.5f)),
         modifier = Modifier
             .width(250.dp)
             .height(50.dp)
+            .alpha(if (isLoading) 1f else 1f),
+        enabled = !isLoading
     ) {
         if (isLoading) {
             CircularProgressIndicator(
                 color = PrimaryColor,
                 modifier = Modifier.size(24.dp)
+
             )}
         else {
             Row(
@@ -165,8 +177,9 @@ private fun LoginButton(onSignInClick: () -> Unit, isLoading: Boolean){
     }
 }
 
+@SuppressLint("UnrememberedMutableState")
 @Preview
 @Composable
 fun PreviewLoginScreen() {
-    LoginScreen(launcher = null, token = null, context = null)
+    LoginScreen(launcher = null, token = null, context = null, isLoadingState = mutableStateOf(false))
 }
