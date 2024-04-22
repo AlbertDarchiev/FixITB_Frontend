@@ -9,12 +9,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8c1054d-3ab1-4b2d-8479-447a9cb1209a" name="Changes" comment="working on UserDetailScreen.kt, almost finished, it has to be configured how to pass the id , now its manual, it has to be automatic">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/fixitb_frontend/ui/screens/IncidenceDetailScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/fixitb_frontend/models/Incidence.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/fixitb_frontend/models/Incidence.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/fixitb_frontend/ui/screens/IncidencesScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/fixitb_frontend/ui/screens/IncidencesScreen.kt" afterDir="false" />
+    <list default="true" id="f8c1054d-3ab1-4b2d-8479-447a9cb1209a" name="Changes" comment="working on IncedenceDetailScreen">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/fixitb_frontend/ui/screens/IncidenceDetailScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/fixitb_frontend/ui/screens/IncidenceDetailScreen.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -717,7 +713,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713800146784</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="working on IncedenceDetailScreen">
+      <option name="closed" value="true" />
+      <created>1713808280000</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1713808280000</updated>
+    </task>
+    <task id="LOCAL-00018" summary="working on IncedenceDetailScreen">
+      <option name="closed" value="true" />
+      <created>1713808372271</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1713808372271</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -738,6 +750,7 @@
     <MESSAGE value="finished users scrren for admin, datos precargados, working on post incidencias" />
     <MESSAGE value=" working on post incidencias, updated add topbar menu textfiel and checking pictures from camera" />
     <MESSAGE value="working on UserDetailScreen.kt, almost finished, it has to be configured how to pass the id , now its manual, it has to be automatic" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on UserDetailScreen.kt, almost finished, it has to be configured how to pass the id , now its manual, it has to be automatic" />
+    <MESSAGE value="working on IncedenceDetailScreen" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on IncedenceDetailScreen" />
   </component>
 </project>
