@@ -151,20 +151,31 @@ fun IncidenceDetailScreen() {
             Spacer(modifier = Modifier.height(20.dp))
 
             // Muestra el estado y el tecnico
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(SecondaryColor.copy(alpha = 0.4f), shape = RoundedCornerShape(5.dp))
-                    .padding(8.dp)
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    // Obtener la incidencia deseada
 
-                    // Mostrar los campos de la incidencia
-                    Text(text = "Estat: ${incidence.status}", color = Color.White)
+            Row(modifier = Modifier.fillMaxWidth()) {
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .background(SecondaryColor.copy(alpha = 0.4f), shape = RoundedCornerShape(5.dp))
+                        .padding(2.dp)
+                ) {
                     Text(
-                        text = "Tecnic Assignat: ${incidence.userAssigned ?: "N/A"}",
-                        color = Color.White
+                        text = "Estat: ${incidence.status}",
+                        color = Color.White,
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
+                Spacer(modifier = Modifier.width(8.dp)) // Espacio entre las cajas
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .background(SecondaryColor.copy(alpha = 0.4f), shape = RoundedCornerShape(5.dp))
+                        .padding(2.dp)
+                ) {
+                    Text(
+                        text = "Tecnic Assignat: ${incidence.userAssigned}",
+                        color = Color.White,
+                        modifier = Modifier.padding(8.dp)
                     )
                 }
             }
