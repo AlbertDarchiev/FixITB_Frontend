@@ -20,11 +20,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -80,7 +77,6 @@ fun IncidenceDetailScreen() {
             Column {
                 Spacer(modifier = Modifier.height(10.dp))
 
-                val incidence = usersList[2] // Accediendo a la segunda incidencia (índice 1)
                 Text(
                     text = "Incidencia: # ${incidence.id}",
                     color = Color.White,
@@ -163,7 +159,6 @@ fun IncidenceDetailScreen() {
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
                     // Obtener la incidencia deseada
-                    val incidence = usersList[2] // Cambia el índice según sea necesario
 
                     // Mostrar los campos de la incidencia
                     Text(text = "Estat: ${incidence.status}", color = Color.White)
