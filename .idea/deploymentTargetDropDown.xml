@@ -2,6 +2,15 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="PreviewPostIncidenceScreen">
+        <State />
+      </entry>
+      <entry key="UsersDetailScreenPreview">
+        <State />
+      </entry>
+      <entry key="UsersScreenPreview">
+        <State />
+      </entry>
       <entry key="app">
         <State />
       </entry>

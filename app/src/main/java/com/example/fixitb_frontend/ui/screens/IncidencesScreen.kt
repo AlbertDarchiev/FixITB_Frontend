@@ -44,12 +44,12 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 val usersList = listOf(
-    Incidence(1, "Monitor", "albert@gmail.com", "Boton del monitor no funciona","description", "2024-04-22", "2024-04-22", "open", 306, "albert.darchiev.7e6@itb.cat", "123123", 123123),
-    Incidence(1, "Altre", "albert@gmail.com", "Falta monitor", "description", "2024-04-22", "2024-04-22", "open", 209, "albert.darchiev.7e6@itb.cat", "123123", 123123),
-    Incidence(1, "Monitor", "albert@gmail.com", "El monitor esta trencat","description", "2024-04-22", "2024-04-22", "closed", 309, "albert.darchiev.7e6@itb.cat", "123123", 123123),
-    Incidence(1, "Altre", "albert@gmail.com", "Falta cable ethernet","description", "2024-04-22", null, "revision", 309, "albert.darchiev.7e6@itb.cat", "123123", 123123),
-    Incidence(1, "Teclado", "albert@gmail.com", "No hi ha teclat","description", "2024-04-22", "2024-04-22", "closed", 104, "albert.darchiev.7e6@itb.cat", "123123", 123123),
-    Incidence(1, "Ordinador", "albert@gmail.com", "Ordinador no arranca","description", "2024-04-22", "2024-04-22", "open", 201, "albert.darchiev.7e6@itb.cat", "123123", 123123),
+    Incidence(1, "Monitor", "albert@gmail.com", "Boton del monitor no funciona","description", "2024-04-22", "2024-04-22", "open", 306, "albert.darchiev.7e6@itb.cat", "123123", 123123,8),
+    Incidence(1, "Altre", "albert@gmail.com", "Falta monitor", "description", "2024-04-22", "2024-04-22", "open", 209, "albert.darchiev.7e6@itb.cat", "123123", 123123,4),
+    Incidence(1, "Monitor", "albert@gmail.com", "El monitor esta trencat","description", "2024-04-22", "2024-04-22", "closed", 309, "albert.darchiev.7e6@itb.cat", "123123", 123123,5),
+    Incidence(1, "Altre", "albert@gmail.com", "Falta cable ethernet","description", "2024-04-22", null, "revision", 309, "albert.darchiev.7e6@itb.cat", "123123", 123123,5),
+    Incidence(1, "Teclado", "albert@gmail.com", "No hi ha teclat","description", "2024-04-22", "2024-04-22", "closed", 104, "albert.darchiev.7e6@itb.cat", "123123", 123123,5),
+    Incidence(1, "Ordinador", "albert@gmail.com", "Ordinador no arranca","description", "2024-04-22", "2024-04-22", "open", 201, "albert.darchiev.7e6@itb.cat", "123123", 123123,7),
     )
 
 @Composable
@@ -99,7 +99,7 @@ fun IncidencesScreen(
                 items(
                     items = usersList,
                     itemContent = {
-                        incidenceListItem(incidence = it)
+                        IncidenceListItem(incidence = it)
                     })
             }
             }
@@ -107,7 +107,7 @@ fun IncidencesScreen(
     }
 
 @Composable
-fun incidenceListItem(incidence: Incidence) {
+fun IncidenceListItem(incidence: Incidence) {
 //    Box(modifier = Modifier
 //        .fillMaxSize()
 //        .padding(10.dp)
