@@ -1,8 +1,10 @@
 package com.example.fixitb_frontend.ui.screens
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.ManagedActivityResultLauncher
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -20,6 +22,7 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -29,6 +32,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModelProvider
 import com.example.fixitb_frontend.R
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -36,6 +40,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.fixitb_frontend.api.ApiViewModel.userService
+import com.example.fixitb_frontend.viewmodel.LoadingViewModel
 import com.example.fixitb_frontend.models.MyNavigationActions
 import com.example.fixitb_frontend.models.MyNavigationDestination
 import com.example.fixitb_frontend.models.MyNavigationRoute
@@ -51,6 +56,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import java.lang.Exception
@@ -59,7 +65,12 @@ object CurrentUser {
     var userFireb: FirebaseUser? = null
     var user : User? = null
 }
+
 class MainActivity : ComponentActivity() {
+    val loadingViewModel by lazy {
+        ViewModelProvider(this).get(LoadingViewModel::class.java)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -74,7 +85,8 @@ class MainActivity : ComponentActivity() {
             MyAppContent(
                 navController = navController,
                 selectedDestination = selectedDestination,
-                navigateTopLevelDestination = navigateAction::navigateTo
+                navigateTopLevelDestination = navigateAction::navigateTo,
+                isLoadingState = loadingViewModel.isLoading
             )
         }
     }
@@ -88,7 +100,6 @@ suspend fun getUser(user: FirebaseUser): User {
 @Composable
 fun ALogin(navController: NavHostController, user: FirebaseUser?) {
     Column {
-
         // HACER GET A API CON (user.email) PARA VER EL ROL DEL USUARIO CON ESE CORREO
         if (user == null){
             navController.navigate(MyNavigationRoute.LOGIN)
@@ -97,8 +108,6 @@ fun ALogin(navController: NavHostController, user: FirebaseUser?) {
             CurrentUser.userFireb = user
             Log.d("USER", user.email.toString())
             val userInfo = User(1, "tecnic", "albert1979djy@gmail.com")
-//            val userInfo = User(2, "admin", "albert1979djy@gmail.com", 1)
-//            val userInfo = User(3, "student", "albert1979djy@gmail.com", 1)
             if (userInfo.role == "admin")
                 navController.navigate(MyNavigationRoute.INCIDENCES)
             else if (userInfo.role == "tecnic")
@@ -128,7 +137,9 @@ fun ALogin(navController: NavHostController, user: FirebaseUser?) {
 fun rememberFirebaseAuthLauncher(
     navController: NavHostController,
     onAuthComplete: (AuthResult) -> Unit,
-    onAuthError: (Exception) -> Unit
+    onAuthError: (Exception) -> Unit,
+    context: Context? = null,
+    isLoadingState: MutableState<Boolean>
 ): ManagedActivityResultLauncher<Intent, ActivityResult>{
     val scope = rememberCoroutineScope()
     return rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
@@ -140,36 +151,42 @@ fun rememberFirebaseAuthLauncher(
 
                 val credential = GoogleAuthProvider.getCredential(account?.idToken, null)
                 scope.launch {
-                    val authResult = Firebase.auth.signInWithCredential(credential).await()
-                    onAuthComplete(authResult)
-
-                    authResult.user?.email
-                    val userData = User(1, "student", authResult.user?.email.toString())
-
+                    val userData = User(1, "student", account.email.toString())
                     try {
                         val response = userService.insertUser(userData)
-                        Log.d("LOGIN - RESPONSE", response.body().toString())
-                        val responseUser : User = response.body()!!
-                        Log.d("LOGIN - UserRole", response.body()!!.role)
-
-                        if (responseUser.role == "admin")
+                        if (response.isSuccessful){
+                            val authResult = Firebase.auth.signInWithCredential(credential).await()
+                            onAuthComplete(authResult)
+                            authResult.user?.email
+                            CurrentUser.userFireb = authResult.user
+                            CurrentUser.user = response.body()
                             navController.navigate(MyNavigationRoute.INCIDENCES)
-
-                        else if (responseUser.role == "tecnic")
-                            navController.navigate(MyNavigationRoute.INCIDENCES)
-
-                        else
-                            navController.navigate(MyNavigationRoute.INCIDENCES)
-
-                    }
-                    catch (e: Exception){
-                        Log.d("LOGIN - ERROR", e.toString())
-                    }
+                            delay(600)
+                            isLoadingState.value = false
+//                            if (CurrentUser.user!!.role == "admin")
+//                                navController.navigate(MyNavigationRoute.INCIDENCES)
+//                            else if (CurrentUser.user!!.role == "tecnic")
+//                                navController.navigate(MyNavigationRoute.INCIDENCES)
+//                            else
+//                                navController.navigate(MyNavigationRoute.INCIDENCES)
+                        }
+                        else{
+                            val responseBody = response.errorBody()!!.string()
+                            Toast.makeText(context, responseBody, Toast.LENGTH_SHORT).show()
+                            isLoadingState.value = false
+                        }
+                    }catch (e: Exception){
+                        Log.d("Google Auth", "Error signing in: ", e)
+                        Toast.makeText(context, "Problema de conexió", Toast.LENGTH_SHORT).show()
+                        isLoadingState.value = false
+                        }
                 }
             }catch (e: Exception){
                 Log.d("Google Auth", "Error signing in", e)
                 onAuthError(e)
+                isLoadingState.value = false
             }
+
         }
     }
 }
@@ -210,6 +227,7 @@ fun MyAppContent(
     navController: NavHostController,
     selectedDestination: String,
     navigateTopLevelDestination: (MyNavigationDestination) -> Unit,
+    isLoadingState : MutableState<Boolean>? = mutableStateOf(false)
 ) {
     var user by remember { mutableStateOf(Firebase.auth.currentUser)}
     val context = LocalContext.current
@@ -222,9 +240,10 @@ fun MyAppContent(
         onAuthError = { e ->
             user = null
             Log.d("Google Auth", "Error signing in", e)
-        }
+        },
+        context = context,
+        isLoadingState = isLoadingState!!
     )
-
     val currentRoute by navController.currentBackStackEntryAsState()
     val showBottomNavigation = rememberSaveable { mutableStateOf(true) }
 
@@ -248,7 +267,7 @@ fun MyAppContent(
                     ALogin(navController = navController, user = user)
                 }
                 composable(MyNavigationRoute.LOGIN) {
-                    LoginScreen(launcher, token, context)
+                    LoginScreen(launcher, token, context, isLoadingState)
                 }
 
             }

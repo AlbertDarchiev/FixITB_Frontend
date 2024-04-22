@@ -53,6 +53,8 @@ android {
 }
 
 dependencies {
+
+
     // FIREBASE
     implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
 
@@ -72,6 +74,9 @@ dependencies {
     // RETROFIT
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    // SCALARS
+    implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
+
 
     // COIL
     implementation("io.coil-kt:coil-compose:2.2.2")
