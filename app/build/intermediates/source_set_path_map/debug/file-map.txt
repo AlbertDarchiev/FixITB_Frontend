@@ -1,64 +1,64 @@
-com.example.fixitb_frontend.app-lifecycle-viewmodel-2.7.0-0 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\07a7de2bcf84dc4eca0e2d9ca7604196\transformed\lifecycle-viewmodel-2.7.0\res
-com.example.fixitb_frontend.app-ui-unit-release-1 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\0acf9b17867cee430ab7685ea52d1e52\transformed\ui-unit-release\res
-com.example.fixitb_frontend.app-material3-1.1.1-2 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\0c5f979a3be2b97ef02c82b8831c6f7f\transformed\material3-1.1.1\res
-com.example.fixitb_frontend.app-profileinstaller-1.3.0-3 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\0f6459af027998e546b21e063943f5d4\transformed\profileinstaller-1.3.0\res
-com.example.fixitb_frontend.app-savedstate-1.2.1-4 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\0f6a9427e76c9b0b67fdd7de7c3affcb\transformed\savedstate-1.2.1\res
-com.example.fixitb_frontend.app-coil-base-2.2.2-5 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\1621eb2d7bd9d9e91f1af589f14d69c9\transformed\coil-base-2.2.2\res
-com.example.fixitb_frontend.app-animation-core-release-6 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\185d92bcd6c3b4207d633081c567b730\transformed\animation-core-release\res
-com.example.fixitb_frontend.app-lifecycle-livedata-2.7.0-7 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\3073a60f085a4d92b9464b2b3d77f759\transformed\lifecycle-livedata-2.7.0\res
-com.example.fixitb_frontend.app-lifecycle-process-2.7.0-8 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\33d91f1213d785cfeddfa931ef9ddd09\transformed\lifecycle-process-2.7.0\res
-com.example.fixitb_frontend.app-ui-graphics-release-9 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\37b38ed2591556876c6237398d9ecb51\transformed\ui-graphics-release\res
-com.example.fixitb_frontend.app-lifecycle-livedata-core-2.7.0-10 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\3b783b6403bee3a4b73d464d6ec095f5\transformed\lifecycle-livedata-core-2.7.0\res
-com.example.fixitb_frontend.app-emoji2-1.4.0-11 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\4432cb999771c948e801c0ed8cb5ec3d\transformed\emoji2-1.4.0\res
-com.example.fixitb_frontend.app-activity-compose-1.8.2-12 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\492f5804a1244a8c907163724bbede7e\transformed\activity-compose-1.8.2\res
-com.example.fixitb_frontend.app-ui-tooling-data-release-13 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\4c8eb214e0a0dd1de95779a7398dd6bd\transformed\ui-tooling-data-release\res
-com.example.fixitb_frontend.app-ui-util-release-14 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\52cbd375f016381b0fc62d2293c8b4ba\transformed\ui-util-release\res
-com.example.fixitb_frontend.app-ui-geometry-release-15 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\53a681f5d7c1e064feae52d25704d234\transformed\ui-geometry-release\res
-com.example.fixitb_frontend.app-foundation-layout-release-16 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\56fcb18ce5777bfb80e9e7da9b50ff0d\transformed\foundation-layout-release\res
-com.example.fixitb_frontend.app-customview-poolingcontainer-1.0.0-17 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\592c83337a7c04c11ce2943bc5006812\transformed\customview-poolingcontainer-1.0.0\res
-com.example.fixitb_frontend.app-play-services-auth-19.2.0-18 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\60721cf3778b5af1a9bd731dead99d20\transformed\play-services-auth-19.2.0\res
-com.example.fixitb_frontend.app-runtime-release-19 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\61c14c1f3d444a68e68756c254da2b65\transformed\runtime-release\res
-com.example.fixitb_frontend.app-lifecycle-runtime-ktx-2.7.0-20 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\650cd44aef9184f81034da3a9b31cf81\transformed\lifecycle-runtime-ktx-2.7.0\res
-com.example.fixitb_frontend.app-lifecycle-runtime-compose-2.7.0-21 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\6b6a7d5564283f5bebe2ef8c0a2dc440\transformed\lifecycle-runtime-compose-2.7.0\res
-com.example.fixitb_frontend.app-play-services-basement-18.3.0-22 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\6be38ba8b4c1ae1d39baf9bad5aa406c\transformed\play-services-basement-18.3.0\res
-com.example.fixitb_frontend.app-play-services-base-18.0.1-23 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\6c1be0e3de0ca025b6b8e45f832a6258\transformed\play-services-base-18.0.1\res
-com.example.fixitb_frontend.app-core-1.12.0-24 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\6f476f7e7b70cffb46c7a4a669fefe1e\transformed\core-1.12.0\res
-com.example.fixitb_frontend.app-runtime-saveable-release-25 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\704758934aa6cdd91f5287021f23c0b6\transformed\runtime-saveable-release\res
-com.example.fixitb_frontend.app-navigation-common-ktx-2.7.7-26 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\7422cb6fa676c132a3f87ea9178da1a1\transformed\navigation-common-ktx-2.7.7\res
-com.example.fixitb_frontend.app-foundation-release-27 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\74ddddaff393c03b0672cca832f4a012\transformed\foundation-release\res
-com.example.fixitb_frontend.app-activity-1.8.2-28 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\77a7f9a3a7b0b6c5acdf1be51d74d251\transformed\activity-1.8.2\res
-com.example.fixitb_frontend.app-navigation-compose-2.7.7-29 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\7e73183719b150b8729d6389c31d22b3\transformed\navigation-compose-2.7.7\res
-com.example.fixitb_frontend.app-lifecycle-runtime-2.7.0-30 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\85d763fe1c8423c76b231e8e4640ec2a\transformed\lifecycle-runtime-2.7.0\res
-com.example.fixitb_frontend.app-browser-1.4.0-31 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\871a73ee4ddeacaf479407eba6e95c3e\transformed\browser-1.4.0\res
-com.example.fixitb_frontend.app-navigation-runtime-2.7.7-32 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\8f2974e9172df9b4208e25ef52ed0b47\transformed\navigation-runtime-2.7.7\res
-com.example.fixitb_frontend.app-material-icons-core-release-33 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\92767cea333fbbd3360ea3e047d722eb\transformed\material-icons-core-release\res
-com.example.fixitb_frontend.app-ui-release-34 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\9503bcf6dfd5f9a3ac07db12b06eb4ea\transformed\ui-release\res
-com.example.fixitb_frontend.app-ui-tooling-preview-release-35 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\97be0a5b70509f5b5ebb44b300b07bd4\transformed\ui-tooling-preview-release\res
-com.example.fixitb_frontend.app-appcompat-resources-1.4.2-36 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\a0251489ec056476f963eec5f7883520\transformed\appcompat-resources-1.4.2\res
-com.example.fixitb_frontend.app-ui-text-release-37 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\a064935bc7903864eab15b0b6aa8151c\transformed\ui-text-release\res
-com.example.fixitb_frontend.app-lifecycle-livedata-ktx-2.7.0-38 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\a583761927b6e7bf8a2fe2ca7f0a26d9\transformed\lifecycle-livedata-ktx-2.7.0\res
-com.example.fixitb_frontend.app-annotation-experimental-1.3.0-39 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\a90409c26deecb44fc14c30ea979df39\transformed\annotation-experimental-1.3.0\res
-com.example.fixitb_frontend.app-navigation-common-2.7.7-40 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\b42217d2ef8b29911c12814e5aca57af\transformed\navigation-common-2.7.7\res
-com.example.fixitb_frontend.app-startup-runtime-1.1.1-41 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\b6b0bbc63bc34746df74251729bba75c\transformed\startup-runtime-1.1.1\res
-com.example.fixitb_frontend.app-core-ktx-1.12.0-42 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\c1f2b8bc618edbba30af9ebf92e5ab98\transformed\core-ktx-1.12.0\res
-com.example.fixitb_frontend.app-material-release-43 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\c241be02adb3b096f2d30affbc94c65d\transformed\material-release\res
-com.example.fixitb_frontend.app-animation-release-44 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\c26d1dfd2adfef59d184f2ab23888796\transformed\animation-release\res
-com.example.fixitb_frontend.app-lifecycle-viewmodel-ktx-2.7.0-45 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\d0e4356c2006ae83b6c49d0cb1624695\transformed\lifecycle-viewmodel-ktx-2.7.0\res
-com.example.fixitb_frontend.app-activity-ktx-1.8.2-46 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\d5545cd43488857269607647471a4bab\transformed\activity-ktx-1.8.2\res
-com.example.fixitb_frontend.app-lifecycle-livedata-core-ktx-2.7.0-47 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\d6f0819fcb2bcd04619ae40ea380c72b\transformed\lifecycle-livedata-core-ktx-2.7.0\res
-com.example.fixitb_frontend.app-firebase-common-20.4.3-48 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\d7495331f292e2e060da3e5c706971db\transformed\firebase-common-20.4.3\res
-com.example.fixitb_frontend.app-navigation-runtime-ktx-2.7.7-49 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\d993d354de5d8b0a1a38b2fbece6bd55\transformed\navigation-runtime-ktx-2.7.7\res
-com.example.fixitb_frontend.app-savedstate-ktx-1.2.1-50 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\e3a800141a89e8a2af65fde11c914c5f\transformed\savedstate-ktx-1.2.1\res
-com.example.fixitb_frontend.app-material-ripple-release-51 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\e60b0959d4a000d876498db08e3a04e7\transformed\material-ripple-release\res
-com.example.fixitb_frontend.app-lifecycle-viewmodel-savedstate-2.7.0-52 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\ebcbbf8391c5ff580bc9a08f07be7b60\transformed\lifecycle-viewmodel-savedstate-2.7.0\res
-com.example.fixitb_frontend.app-ui-test-manifest-1.5.1-53 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\ec285b3b3841afb9f29ff1d749608fa1\transformed\ui-test-manifest-1.5.1\res
-com.example.fixitb_frontend.app-ui-tooling-release-54 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\ed94f76f3e562bc4c433356439ada3dc\transformed\ui-tooling-release\res
-com.example.fixitb_frontend.app-lifecycle-viewmodel-compose-2.7.0-55 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\f2d43ab6cd2d32a142c65010746bdd9a\transformed\lifecycle-viewmodel-compose-2.7.0\res
-com.example.fixitb_frontend.app-core-runtime-2.2.0-56 C:\Users\Albert Darchiev\.gradle\caches\transforms-3\f73cc9565eb8712dbd37c9e6d89c1d0d\transformed\core-runtime-2.2.0\res
-com.example.fixitb_frontend.app-res-57 C:\Users\Albert Darchiev\Documents\AndroidStudioProjects\FixITB_Frontend\app\build\generated\res\processDebugGoogleServices
-com.example.fixitb_frontend.app-resValues-58 C:\Users\Albert Darchiev\Documents\AndroidStudioProjects\FixITB_Frontend\app\build\generated\res\resValues\debug
-com.example.fixitb_frontend.app-packageDebugResources-59 C:\Users\Albert Darchiev\Documents\AndroidStudioProjects\FixITB_Frontend\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.example.fixitb_frontend.app-packageDebugResources-60 C:\Users\Albert Darchiev\Documents\AndroidStudioProjects\FixITB_Frontend\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.example.fixitb_frontend.app-merged_res-61 C:\Users\Albert Darchiev\Documents\AndroidStudioProjects\FixITB_Frontend\app\build\intermediates\merged_res\debug
-com.example.fixitb_frontend.app-debug-62 C:\Users\Albert Darchiev\Documents\AndroidStudioProjects\FixITB_Frontend\app\src\debug\res
-com.example.fixitb_frontend.app-main-63 C:\Users\Albert Darchiev\Documents\AndroidStudioProjects\FixITB_Frontend\app\src\main\res
+com.example.fixitb_frontend.app-lifecycle-viewmodel-2.7.0-0 C:\Users\azizr\.gradle\caches\transforms-3\07a7de2bcf84dc4eca0e2d9ca7604196\transformed\lifecycle-viewmodel-2.7.0\res
+com.example.fixitb_frontend.app-ui-unit-release-1 C:\Users\azizr\.gradle\caches\transforms-3\0acf9b17867cee430ab7685ea52d1e52\transformed\ui-unit-release\res
+com.example.fixitb_frontend.app-material3-1.1.1-2 C:\Users\azizr\.gradle\caches\transforms-3\0c5f979a3be2b97ef02c82b8831c6f7f\transformed\material3-1.1.1\res
+com.example.fixitb_frontend.app-profileinstaller-1.3.0-3 C:\Users\azizr\.gradle\caches\transforms-3\0f6459af027998e546b21e063943f5d4\transformed\profileinstaller-1.3.0\res
+com.example.fixitb_frontend.app-savedstate-1.2.1-4 C:\Users\azizr\.gradle\caches\transforms-3\0f6a9427e76c9b0b67fdd7de7c3affcb\transformed\savedstate-1.2.1\res
+com.example.fixitb_frontend.app-coil-base-2.2.2-5 C:\Users\azizr\.gradle\caches\transforms-3\1621eb2d7bd9d9e91f1af589f14d69c9\transformed\coil-base-2.2.2\res
+com.example.fixitb_frontend.app-animation-core-release-6 C:\Users\azizr\.gradle\caches\transforms-3\185d92bcd6c3b4207d633081c567b730\transformed\animation-core-release\res
+com.example.fixitb_frontend.app-lifecycle-livedata-2.7.0-7 C:\Users\azizr\.gradle\caches\transforms-3\3073a60f085a4d92b9464b2b3d77f759\transformed\lifecycle-livedata-2.7.0\res
+com.example.fixitb_frontend.app-lifecycle-process-2.7.0-8 C:\Users\azizr\.gradle\caches\transforms-3\33d91f1213d785cfeddfa931ef9ddd09\transformed\lifecycle-process-2.7.0\res
+com.example.fixitb_frontend.app-ui-graphics-release-9 C:\Users\azizr\.gradle\caches\transforms-3\37b38ed2591556876c6237398d9ecb51\transformed\ui-graphics-release\res
+com.example.fixitb_frontend.app-lifecycle-livedata-core-2.7.0-10 C:\Users\azizr\.gradle\caches\transforms-3\3b783b6403bee3a4b73d464d6ec095f5\transformed\lifecycle-livedata-core-2.7.0\res
+com.example.fixitb_frontend.app-emoji2-1.4.0-11 C:\Users\azizr\.gradle\caches\transforms-3\4432cb999771c948e801c0ed8cb5ec3d\transformed\emoji2-1.4.0\res
+com.example.fixitb_frontend.app-activity-compose-1.8.2-12 C:\Users\azizr\.gradle\caches\transforms-3\492f5804a1244a8c907163724bbede7e\transformed\activity-compose-1.8.2\res
+com.example.fixitb_frontend.app-ui-tooling-data-release-13 C:\Users\azizr\.gradle\caches\transforms-3\4c8eb214e0a0dd1de95779a7398dd6bd\transformed\ui-tooling-data-release\res
+com.example.fixitb_frontend.app-ui-util-release-14 C:\Users\azizr\.gradle\caches\transforms-3\52cbd375f016381b0fc62d2293c8b4ba\transformed\ui-util-release\res
+com.example.fixitb_frontend.app-ui-geometry-release-15 C:\Users\azizr\.gradle\caches\transforms-3\53a681f5d7c1e064feae52d25704d234\transformed\ui-geometry-release\res
+com.example.fixitb_frontend.app-foundation-layout-release-16 C:\Users\azizr\.gradle\caches\transforms-3\56fcb18ce5777bfb80e9e7da9b50ff0d\transformed\foundation-layout-release\res
+com.example.fixitb_frontend.app-customview-poolingcontainer-1.0.0-17 C:\Users\azizr\.gradle\caches\transforms-3\592c83337a7c04c11ce2943bc5006812\transformed\customview-poolingcontainer-1.0.0\res
+com.example.fixitb_frontend.app-play-services-auth-19.2.0-18 C:\Users\azizr\.gradle\caches\transforms-3\60721cf3778b5af1a9bd731dead99d20\transformed\play-services-auth-19.2.0\res
+com.example.fixitb_frontend.app-runtime-release-19 C:\Users\azizr\.gradle\caches\transforms-3\61c14c1f3d444a68e68756c254da2b65\transformed\runtime-release\res
+com.example.fixitb_frontend.app-lifecycle-runtime-ktx-2.7.0-20 C:\Users\azizr\.gradle\caches\transforms-3\650cd44aef9184f81034da3a9b31cf81\transformed\lifecycle-runtime-ktx-2.7.0\res
+com.example.fixitb_frontend.app-lifecycle-runtime-compose-2.7.0-21 C:\Users\azizr\.gradle\caches\transforms-3\6b6a7d5564283f5bebe2ef8c0a2dc440\transformed\lifecycle-runtime-compose-2.7.0\res
+com.example.fixitb_frontend.app-play-services-basement-18.3.0-22 C:\Users\azizr\.gradle\caches\transforms-3\6be38ba8b4c1ae1d39baf9bad5aa406c\transformed\play-services-basement-18.3.0\res
+com.example.fixitb_frontend.app-play-services-base-18.0.1-23 C:\Users\azizr\.gradle\caches\transforms-3\6c1be0e3de0ca025b6b8e45f832a6258\transformed\play-services-base-18.0.1\res
+com.example.fixitb_frontend.app-core-1.12.0-24 C:\Users\azizr\.gradle\caches\transforms-3\6f476f7e7b70cffb46c7a4a669fefe1e\transformed\core-1.12.0\res
+com.example.fixitb_frontend.app-runtime-saveable-release-25 C:\Users\azizr\.gradle\caches\transforms-3\704758934aa6cdd91f5287021f23c0b6\transformed\runtime-saveable-release\res
+com.example.fixitb_frontend.app-navigation-common-ktx-2.7.7-26 C:\Users\azizr\.gradle\caches\transforms-3\7422cb6fa676c132a3f87ea9178da1a1\transformed\navigation-common-ktx-2.7.7\res
+com.example.fixitb_frontend.app-foundation-release-27 C:\Users\azizr\.gradle\caches\transforms-3\74ddddaff393c03b0672cca832f4a012\transformed\foundation-release\res
+com.example.fixitb_frontend.app-activity-1.8.2-28 C:\Users\azizr\.gradle\caches\transforms-3\77a7f9a3a7b0b6c5acdf1be51d74d251\transformed\activity-1.8.2\res
+com.example.fixitb_frontend.app-navigation-compose-2.7.7-29 C:\Users\azizr\.gradle\caches\transforms-3\7e73183719b150b8729d6389c31d22b3\transformed\navigation-compose-2.7.7\res
+com.example.fixitb_frontend.app-lifecycle-runtime-2.7.0-30 C:\Users\azizr\.gradle\caches\transforms-3\85d763fe1c8423c76b231e8e4640ec2a\transformed\lifecycle-runtime-2.7.0\res
+com.example.fixitb_frontend.app-browser-1.4.0-31 C:\Users\azizr\.gradle\caches\transforms-3\871a73ee4ddeacaf479407eba6e95c3e\transformed\browser-1.4.0\res
+com.example.fixitb_frontend.app-navigation-runtime-2.7.7-32 C:\Users\azizr\.gradle\caches\transforms-3\8f2974e9172df9b4208e25ef52ed0b47\transformed\navigation-runtime-2.7.7\res
+com.example.fixitb_frontend.app-material-icons-core-release-33 C:\Users\azizr\.gradle\caches\transforms-3\92767cea333fbbd3360ea3e047d722eb\transformed\material-icons-core-release\res
+com.example.fixitb_frontend.app-ui-release-34 C:\Users\azizr\.gradle\caches\transforms-3\9503bcf6dfd5f9a3ac07db12b06eb4ea\transformed\ui-release\res
+com.example.fixitb_frontend.app-ui-tooling-preview-release-35 C:\Users\azizr\.gradle\caches\transforms-3\97be0a5b70509f5b5ebb44b300b07bd4\transformed\ui-tooling-preview-release\res
+com.example.fixitb_frontend.app-appcompat-resources-1.4.2-36 C:\Users\azizr\.gradle\caches\transforms-3\a0251489ec056476f963eec5f7883520\transformed\appcompat-resources-1.4.2\res
+com.example.fixitb_frontend.app-ui-text-release-37 C:\Users\azizr\.gradle\caches\transforms-3\a064935bc7903864eab15b0b6aa8151c\transformed\ui-text-release\res
+com.example.fixitb_frontend.app-lifecycle-livedata-ktx-2.7.0-38 C:\Users\azizr\.gradle\caches\transforms-3\a583761927b6e7bf8a2fe2ca7f0a26d9\transformed\lifecycle-livedata-ktx-2.7.0\res
+com.example.fixitb_frontend.app-annotation-experimental-1.3.0-39 C:\Users\azizr\.gradle\caches\transforms-3\a90409c26deecb44fc14c30ea979df39\transformed\annotation-experimental-1.3.0\res
+com.example.fixitb_frontend.app-navigation-common-2.7.7-40 C:\Users\azizr\.gradle\caches\transforms-3\b42217d2ef8b29911c12814e5aca57af\transformed\navigation-common-2.7.7\res
+com.example.fixitb_frontend.app-startup-runtime-1.1.1-41 C:\Users\azizr\.gradle\caches\transforms-3\b6b0bbc63bc34746df74251729bba75c\transformed\startup-runtime-1.1.1\res
+com.example.fixitb_frontend.app-core-ktx-1.12.0-42 C:\Users\azizr\.gradle\caches\transforms-3\c1f2b8bc618edbba30af9ebf92e5ab98\transformed\core-ktx-1.12.0\res
+com.example.fixitb_frontend.app-material-release-43 C:\Users\azizr\.gradle\caches\transforms-3\c241be02adb3b096f2d30affbc94c65d\transformed\material-release\res
+com.example.fixitb_frontend.app-animation-release-44 C:\Users\azizr\.gradle\caches\transforms-3\c26d1dfd2adfef59d184f2ab23888796\transformed\animation-release\res
+com.example.fixitb_frontend.app-lifecycle-viewmodel-ktx-2.7.0-45 C:\Users\azizr\.gradle\caches\transforms-3\d0e4356c2006ae83b6c49d0cb1624695\transformed\lifecycle-viewmodel-ktx-2.7.0\res
+com.example.fixitb_frontend.app-activity-ktx-1.8.2-46 C:\Users\azizr\.gradle\caches\transforms-3\d5545cd43488857269607647471a4bab\transformed\activity-ktx-1.8.2\res
+com.example.fixitb_frontend.app-lifecycle-livedata-core-ktx-2.7.0-47 C:\Users\azizr\.gradle\caches\transforms-3\d6f0819fcb2bcd04619ae40ea380c72b\transformed\lifecycle-livedata-core-ktx-2.7.0\res
+com.example.fixitb_frontend.app-firebase-common-20.4.3-48 C:\Users\azizr\.gradle\caches\transforms-3\d7495331f292e2e060da3e5c706971db\transformed\firebase-common-20.4.3\res
+com.example.fixitb_frontend.app-navigation-runtime-ktx-2.7.7-49 C:\Users\azizr\.gradle\caches\transforms-3\d993d354de5d8b0a1a38b2fbece6bd55\transformed\navigation-runtime-ktx-2.7.7\res
+com.example.fixitb_frontend.app-savedstate-ktx-1.2.1-50 C:\Users\azizr\.gradle\caches\transforms-3\e3a800141a89e8a2af65fde11c914c5f\transformed\savedstate-ktx-1.2.1\res
+com.example.fixitb_frontend.app-material-ripple-release-51 C:\Users\azizr\.gradle\caches\transforms-3\e60b0959d4a000d876498db08e3a04e7\transformed\material-ripple-release\res
+com.example.fixitb_frontend.app-lifecycle-viewmodel-savedstate-2.7.0-52 C:\Users\azizr\.gradle\caches\transforms-3\ebcbbf8391c5ff580bc9a08f07be7b60\transformed\lifecycle-viewmodel-savedstate-2.7.0\res
+com.example.fixitb_frontend.app-ui-test-manifest-1.5.1-53 C:\Users\azizr\.gradle\caches\transforms-3\ec285b3b3841afb9f29ff1d749608fa1\transformed\ui-test-manifest-1.5.1\res
+com.example.fixitb_frontend.app-ui-tooling-release-54 C:\Users\azizr\.gradle\caches\transforms-3\ed94f76f3e562bc4c433356439ada3dc\transformed\ui-tooling-release\res
+com.example.fixitb_frontend.app-lifecycle-viewmodel-compose-2.7.0-55 C:\Users\azizr\.gradle\caches\transforms-3\f2d43ab6cd2d32a142c65010746bdd9a\transformed\lifecycle-viewmodel-compose-2.7.0\res
+com.example.fixitb_frontend.app-core-runtime-2.2.0-56 C:\Users\azizr\.gradle\caches\transforms-3\f73cc9565eb8712dbd37c9e6d89c1d0d\transformed\core-runtime-2.2.0\res
+com.example.fixitb_frontend.app-res-57 C:\Users\azizr\OneDrive\Documentos\FixItbApp\app\build\generated\res\processDebugGoogleServices
+com.example.fixitb_frontend.app-resValues-58 C:\Users\azizr\OneDrive\Documentos\FixItbApp\app\build\generated\res\resValues\debug
+com.example.fixitb_frontend.app-packageDebugResources-59 C:\Users\azizr\OneDrive\Documentos\FixItbApp\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.fixitb_frontend.app-packageDebugResources-60 C:\Users\azizr\OneDrive\Documentos\FixItbApp\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.fixitb_frontend.app-merged_res-61 C:\Users\azizr\OneDrive\Documentos\FixItbApp\app\build\intermediates\merged_res\debug
+com.example.fixitb_frontend.app-debug-62 C:\Users\azizr\OneDrive\Documentos\FixItbApp\app\src\debug\res
+com.example.fixitb_frontend.app-main-63 C:\Users\azizr\OneDrive\Documentos\FixItbApp\app\src\main\res
