@@ -46,3 +46,10 @@ Objetivos de hoy:
  - Alan: Endpoint y funcion POST incidencias
  - Roman: Comenzar con la pantalla Crear Incidencia
  - Albert: Implementar bottom Navigation en Compose
+
+## Sprint 3
+### 22/04/2024    
+Objetivos de hoy:
+ - Alan: Modificar BD, crear funcion para obtener incidenciar de un usuario en concreto
+ - Roman: Comenzar con la pantalla de Detalles Usuario
+ - Albert: Investigar sobre como leer codigos de barra con la camara en Compose
