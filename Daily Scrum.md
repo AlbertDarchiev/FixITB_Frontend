@@ -53,3 +53,10 @@ Objetivos de hoy:
  - Alan: Modificar BD, crear funcion para obtener incidenciar de un usuario en concreto
  - Roman: Comenzar con la pantalla de Detalles Usuario
  - Albert: Investigar sobre como leer codigos de barra con la camara en Compose
+
+### 24/04/2024    
+Objetivos de hoy:
+ - Alan: Securizar las rutas en la API 
+ - Roman: Comenzar con la pantalla de Detalles Incidencia
+ - Albert: Implementar lector de codigos de barra y modificar el UI/añadir funcionalidades en la pantalla Crear Incidencia
+   
