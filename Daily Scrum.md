@@ -59,4 +59,10 @@ Objetivos de hoy:
  - Alan: Securizar las rutas en la API 
  - Roman: Comenzar con la pantalla de Detalles Incidencia
  - Albert: Implementar lector de codigos de barra y modificar el UI/añadir funcionalidades en la pantalla Crear Incidencia
+
+### 25/04/2024    
+Objetivos de hoy:
+ - Alan: Implementar el IdToken de Google y securizar rutas con JWT 
+ - Roman: Finalizar la pantalla de Detalles Incidencia y comenzar con la pantalla Tecnic
+ - Albert: Implementar el IdToken de Google y modificar el UI y añadir funcionalidades en la pantalla Crear Incidencia
    
