@@ -28,6 +28,8 @@ import androidx.compose.ui.unit.sp
 import com.example.fixitb_frontend.R
 import com.example.fixitb_frontend.ui.theme.Blue1
 import com.example.fixitb_frontend.ui.theme.SecondaryColor
+import androidx.compose.foundation.shape.CircleShape
+
 
 
 
@@ -99,7 +101,10 @@ fun IncidenceDetailScreen() {
                 Box(
                     modifier = Modifier
                         .weight(1f)
-                        .background(SecondaryColor.copy(alpha = 0.4f), shape = RoundedCornerShape(5.dp))
+                        .background(
+                            SecondaryColor.copy(alpha = 0.4f),
+                            shape = RoundedCornerShape(5.dp)
+                        )
                         .padding(2.dp)
                 ) {
                     Text(
@@ -113,7 +118,10 @@ fun IncidenceDetailScreen() {
                 Box(
                     modifier = Modifier
                         .weight(1f)
-                        .background(SecondaryColor.copy(alpha = 0.4f), shape = RoundedCornerShape(5.dp))
+                        .background(
+                            SecondaryColor.copy(alpha = 0.4f),
+                            shape = RoundedCornerShape(5.dp)
+                        )
                         .padding(2.dp)
                 ) {
                     Text(
@@ -141,9 +149,10 @@ fun IncidenceDetailScreen() {
                     // Mostrar los campos de la incidencia
                     Text(text = "Aula: ${incidence.classNum}", color = Color.White)
                     Text(text = "Dispositiu: ${incidence.device}", color = Color.White)
-                    Text(text = "Descripció: ${incidence.description}", color = Color.White)
                     Text(text = "Codi: ${incidence.codeMain}", color = Color.White)
                     Text(text = "Codi Movistar: ${incidence.codeMovistar}", color = Color.White)
+                    Text(text = "Descripció: ${incidence.description}", color = Color.White)
+
                     Text(text = "Image: ${incidence.image}", color = Color.White)
                 }
             }
@@ -159,11 +168,26 @@ fun IncidenceDetailScreen() {
                         .background(SecondaryColor.copy(alpha = 0.4f), shape = RoundedCornerShape(5.dp))
                         .padding(2.dp)
                 ) {
-                    Text(
-                        text = "Estat: ${incidence.status}",
-                        color = Color.White,
-                        modifier = Modifier.padding(8.dp)
-                    )
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = "Estat: ${incidence.status}",
+                            color = Color.White,
+                            modifier = Modifier.padding(8.dp)
+                        )
+                        Box(
+                            modifier = Modifier
+                                .size(20.dp)
+                                .background(
+                                    shape = RoundedCornerShape(10.dp),
+                                    color = if (incidence.status == "open")
+                                        Color.Green
+                                    else if (incidence.status == "closed")
+                                        Color.Red
+                                    else
+                                        Color.Yellow
+                                )
+                        )
+                    }
                 }
                 Spacer(modifier = Modifier.width(8.dp)) // Espacio entre las cajas
                 Box(
@@ -179,9 +203,12 @@ fun IncidenceDetailScreen() {
                     )
                 }
             }
+
         }
     }
 }
+
+
 
 
 
