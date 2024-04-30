@@ -49,6 +49,7 @@ val navigationDestinations = listOf(
 object MyNavigationRoute{
     const val INCIDENCES = "incidences"
     const val INCIDENCE_POST = "incidence_post"
+    const val CAMERA_BARCODE = "camera_barcode"
     const val USERS = "users"
     const val LOGIN = "login"
     const val SPLASH = "splash"

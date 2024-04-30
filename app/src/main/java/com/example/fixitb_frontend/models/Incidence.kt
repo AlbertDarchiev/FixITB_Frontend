@@ -7,11 +7,11 @@ data class Incidence(
     val title: String,
     val description: String,
     val openDate: String,
-    val closeDate: String?,
+    val closeDate: String,
     val status: String,
-    val classNum: Int,
+    val class_num: Int,
     val userAssigned: String?,
     val codeMain: String,
-    val codeMovistar: Long,
-    val userId: Int
+    val codeMovistar: Int,
+    val user_id: Int
 )

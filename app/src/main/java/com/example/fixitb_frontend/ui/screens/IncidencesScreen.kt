@@ -1,5 +1,11 @@
 package com.example.fixitb_frontend.ui.screens
 
+import android.Manifest
+import android.content.Context
+import android.util.Log
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -22,10 +28,15 @@ import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -33,86 +44,85 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.fixitb_frontend.R
+import com.example.fixitb_frontend.api.ApiViewModel
 import com.example.fixitb_frontend.models.Incidence
 import com.example.fixitb_frontend.models.MyNavigationRoute
+import com.example.fixitb_frontend.models.User
 import com.example.fixitb_frontend.ui.composables.ComposableBoldText2
+import com.example.fixitb_frontend.ui.composables.ComposableHeader
 import com.example.fixitb_frontend.ui.composables.ComposableNormalText2
+import com.example.fixitb_frontend.ui.composables.buttons.GoBackButton
 import com.example.fixitb_frontend.ui.theme.Blue1
 import com.example.fixitb_frontend.ui.theme.SecondaryColor
 import com.example.fixitb_frontend.ui.theme.rowdiesFontFamily
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.launch
 
-val usersList = listOf(
-    Incidence(1, "Monitor", "albert@gmail.com", "Boton del monitor no funciona","description", "2024-04-22", "2024-04-22", "open", 306, "albert.darchiev.7e6@itb.cat", "123123", 123123,8),
-    Incidence(2, "Altre", "albert@gmail.com", "Falta monitor", "description", "2024-04-22", "2024-04-22", "open", 209, "albert.darchiev.7e6@itb.cat", "123123", 123123,4),
-    Incidence(3, "Monitor", "picture", "El monitor esta trencat","description", "2024-04-22", "2024-04-22", "closed", 309, "carlos", "ZLV-024", 253800380425,5),
-    Incidence(4, "Altre", "albert@gmail.com", "Falta cable ethernet","description", "2024-04-22", null, "revision", 309, "albert.darchiev.7e6@itb.cat", "123123", 123123,5),
-    Incidence(5, "Teclado", "albert@gmail.com", "No hi ha teclat","description", "2024-04-22", "2024-04-22", "closed", 104, "albert.darchiev.7e6@itb.cat", "123123", 123123,5),
-    Incidence(6, "Ordinador", "albert@gmail.com", "Ordinador no arranca","description", "2024-04-22", "2024-04-22", "open", 201, "albert.darchiev.7e6@itb.cat", "123123", 123123,7),
-    )
+suspend fun getIncidences(): List<Incidence> {
+    val response = ApiViewModel.incidenceService.getIncidences("Bearer " + CurrentUser.userToken)
+    if (response.isSuccessful) {
+        val incidences = response.body()
+        if (incidences != null) {
+            Log.d("INCIDENCES", incidences.toString())
+            return incidences
+        } else {
+            // Handle null response body
+            Log.e("INCIDENCES", "Response body is null")
+            return emptyList()
+        }
+    } else {
+        // Handle unsuccessful response
+        Log.e("INCIDENCES", "Unsuccessful response: ${response.code()}")
+        // You might want to throw an exception or handle this case differently
+        return emptyList()
+    }
+}
+
 
 @Composable
 fun IncidencesScreen(
     navController: NavHostController,
 ) {
+    val usersListState = remember { mutableStateOf<List<Incidence>>(emptyList()) }
+    var incidenceList = listOf<Incidence>()
+
+    // Cargar lista de incidencias desde API
+    val coroutineScope = rememberCoroutineScope()
+    SideEffect {
+        coroutineScope.launch {
+            incidenceList = getIncidences()
+            usersListState.value = incidenceList
+            Log.d("INCIDENCES", usersListState.value.toString())
+        }
+    }
+
     Box(modifier = Modifier
         .fillMaxSize()
         .background(Blue1)
         )
     {
-        Button(onClick = {
-            Firebase.auth.signOut()
-            navController.navigate(MyNavigationRoute.LOGIN)
-        }) {
-            Column {
-                Image(
-                    imageVector = Icons.Default.ExitToApp,
-                    contentDescription = "EXIT",
-                    modifier = Modifier.size(24.dp)
-                )
-                Text("Cerrar sesión", fontSize = 10.sp)
-            }
-
-        }
+        GoBackButton(navController = navController, destination = MyNavigationRoute.LOGIN)
 
         Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Image(
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-                alignment = Alignment.Center,
-                painter = painterResource(id = R.drawable.img_logo_1),
-                contentDescription = null,
-                contentScale = ContentScale.Crop
-            )
-            Spacer(modifier = Modifier.height(20.dp))
-            Text(
-                text = "INCIDÈNCIES",
-                fontFamily = rowdiesFontFamily,
-                fontSize = 30.sp,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-                color = Color.White,
-            )
+            ComposableHeader("INCIDÈNCIES")
             LazyColumn(
                 modifier = Modifier.fillMaxHeight(1f),
                 contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
             ) {
+
                 items(
-                    items = usersList,
+                    items = usersListState.value,
                     itemContent = {
-                        IncidenceListItem(incidence = it)
+                        incidenceListItem(incidence = it)
                     })
-            }
             }
         }
     }
+}
 
 @Composable
-fun IncidenceListItem(incidence: Incidence) {
-//    Box(modifier = Modifier
-//        .fillMaxSize()
-//        .padding(10.dp)
-//        .background(SecondaryColor.copy(alpha = 0.3f), shape = RoundedCornerShape(20.dp))
-//    )
+fun incidenceListItem(incidence: Incidence) {
     Box(modifier = Modifier
         .fillMaxSize()
         .padding(8.dp)
@@ -120,10 +130,10 @@ fun IncidenceListItem(incidence: Incidence) {
     ){
         Column(modifier = Modifier.padding(8.dp)) {
             ComposableBoldText2(text = incidence.title, fontSize = 16)
-            ComposableNormalText2(text = "Aula ${incidence.classNum} · ${incidence.device}", fontSize = 14)
+            ComposableNormalText2(text = "Aula ${incidence.class_num} · ${incidence.device}", fontSize = 14)
             Row {
                 ComposableNormalText2(text = incidence.openDate+" - ", fontSize = 14)
-                if (incidence.closeDate != null)
+                if (incidence.closeDate != null && incidence.closeDate != "")
                     ComposableNormalText2(text = incidence.closeDate, fontSize = 14)
                 Spacer(modifier = Modifier.weight(1f))
 
@@ -133,9 +143,9 @@ fun IncidenceListItem(incidence: Incidence) {
                             .background(
                                 shape = CircleShape,
                                 color =
-                                if (incidence.status == "open")
+                                if (incidence.status == "obert")
                                     Color.Green
-                                else if (incidence.status == "closed")
+                                else if (incidence.status == "tancat")
                                     Color.Red else
                                     Color.Yellow
                             ))

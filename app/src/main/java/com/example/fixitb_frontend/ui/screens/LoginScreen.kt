@@ -51,6 +51,8 @@ import com.example.fixitb_frontend.ui.theme.rowdiesFontFamily
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 @Composable
 fun LoginScreen(launcher :
@@ -59,6 +61,10 @@ fun LoginScreen(launcher :
                 context: Context? = null,
                 isLoadingState : MutableState<Boolean>? = mutableStateOf(false)) {
 
+//    CurrentUser.userGoogle = null
+//    CurrentUser.userFireb = null
+//    CurrentUser.userToken = null
+//    Firebase.auth.signOut()
 
     Box(modifier = Modifier
         .fillMaxSize()
