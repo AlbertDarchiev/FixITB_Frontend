@@ -64,5 +64,22 @@ Objetivos de hoy:
 Objetivos de hoy:
  - Alan: Implementar el IdToken de Google y securizar rutas con JWT 
  - Roman: Finalizar la pantalla de Detalles Incidencia y comenzar con la pantalla Tecnic
- - Albert: Implementar el IdToken de Google y modificar el UI y añadir funcionalidades en la pantalla Crear Incidencia
-   
+ - Albert: Implementar el IdToken de Google y modificar el UI y añadir funcionalidades en la pantalla Crear Incidencia(pasar )
+
+### 26/04/2024    
+Objetivos de hoy:
+ - Alan: Crear funcionalidad asignar rol API y securizar rutas especificas en la API
+ - Roman: Finalizar la pantalla de Detalles Incidencia y comenzar con la pantalla Tecnic
+ - Albert: Modificar el UI de la pagina Crear Incidencia
+
+### 29/04/2024    
+Objetivos de hoy:
+ - Alan: Modificar BD y intentar recibir y hacer la verificación del Token de Google en la API
+ - Roman: Comenzar con la pantalla de Detalles Usuario
+ - Albert: Seguir con la implementacion del Token de Google en la APP
+
+### 30/04/2024    
+Objetivos de hoy:
+ - Alan: Implementar Imagekit para subir las imagenes a la nuve, y guardar la URL de imagen en la BD
+ - Roman: Comenzar con la pantalla de Detalles Usuario
+ - Albert: Guardar imagen de camara/galeria en local y hacer peticion POST a la api para guardar incidencia
