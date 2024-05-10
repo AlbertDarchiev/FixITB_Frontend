@@ -211,7 +211,10 @@ fun incidenceListItem(incidence: Incidence) {
         .background(
             PrimaryColor, shape = RoundedCornerShape(12.dp)
         )
-        .clickable { MainViewModel.navController!!.navigate(MyNavigationRoute.INCIDENCE_POST) }
+        .clickable {
+            ApiViewModel.setSelectedIncidenceId(incidence.id!!)
+            MainViewModel.navController!!.navigate(MyNavigationRoute.INCIDENCE_DETAILS)
+        }
     ) {
         Row {
             Column(modifier = Modifier.padding(8.dp)) {

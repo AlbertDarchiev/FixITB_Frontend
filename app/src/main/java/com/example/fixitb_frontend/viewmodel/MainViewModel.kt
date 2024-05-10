@@ -30,6 +30,8 @@ object MainViewModel : ViewModel() {
         launchCameraEvent = mutableStateOf(true)
     }
 
+
+
     fun requestCameraPermission(permissionLauncher: ActivityResultLauncher<String>) {
         permissionLauncher.launch(Manifest.permission.CAMERA)
     }

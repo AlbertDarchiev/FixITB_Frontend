@@ -303,6 +303,9 @@ fun MyAppContent(
                 composable(MyNavigationRoute.INCIDENCE_POST) {
                     PostIncidenceScreen(navController, viewModel)
                 }
+                composable(MyNavigationRoute.INCIDENCE_DETAILS) {
+                    IncidenceDetailScreen(navController)
+                }
                 composable(MyNavigationRoute.USER_DETAILS) {
                     UsersDetailScreen(1)
                 }

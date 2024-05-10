@@ -23,4 +23,10 @@ interface IncidenceService {
 
     @PUT("/incidences/{incidenceId}")
     suspend fun updateIncidenceById(@Header("Authorization") token: String, @Path("incidenceId") incidenceId: Int, @Body incidence: Incidence): Response<Unit>
+
+    @GET("/incidences/incidence/{incidenceId}")
+    suspend fun getIncidenceById(
+        @Header("Authorization") token: String,
+        @Path("incidenceId") incidenceId: Int
+    ): Response<Incidence>
 }
