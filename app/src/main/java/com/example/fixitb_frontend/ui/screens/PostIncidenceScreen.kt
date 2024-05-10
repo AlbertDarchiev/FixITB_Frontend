@@ -1,9 +1,17 @@
 package com.example.fixitb_frontend.ui.screens
 
-import androidx.compose.foundation.BorderStroke
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.provider.MediaStore
+import android.util.Log
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,10 +24,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenuItem
@@ -27,9 +34,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -45,6 +50,7 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
@@ -52,8 +58,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
+import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavHostController
+import coil.compose.rememberImagePainter
 import com.example.fixitb_frontend.R
+import com.example.fixitb_frontend.api.ApiViewModel
+import com.example.fixitb_frontend.models.Incidence
 import com.example.fixitb_frontend.models.MyNavigationRoute
 import com.example.fixitb_frontend.ui.composables.ComposableHeader
 import com.example.fixitb_frontend.ui.theme.Blue1
@@ -63,20 +75,100 @@ import com.example.fixitb_frontend.ui.theme.SecondaryColor2
 import com.example.fixitb_frontend.ui.theme.TertiaryColor
 import com.example.fixitb_frontend.ui.theme.rowdiesFontFamily
 import com.example.fixitb_frontend.viewmodel.MainViewModel
+import com.pixelcarrot.base64image.Base64Image
+import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Objects
+import kotlin.io.encoding.ExperimentalEncodingApi
 
 
-@OptIn(ExperimentalMaterial3Api::class)
+
+//// FUNCION PARA SUBIR INCIDENCIA ////
+suspend fun postIncidence(incidence: Incidence, imageUri: Uri, context: Context, vm: MainViewModel): Incidence? {
+    var toReturn : Incidence? = null
+    if (imageUri != Uri.EMPTY) {
+        val bitmap = MediaStore.Images.Media.getBitmap(context.contentResolver, imageUri)
+        Base64Image.encode(bitmap) { base64 ->
+            incidence.image = base64.toString()
+
+            vm.viewModelScope.launch {
+                try {
+                    val response = ApiViewModel.incidenceService.insertIncidence("Bearer " + CurrentUser.userToken, incidence)
+                    if (response.isSuccessful) {
+                        toReturn = response.body()
+                        Log.d("POST INCIDENCE", "Subido correctamente")
+                        vm.navController!!.navigate(MyNavigationRoute.INCIDENCES)
+                    } else {
+                        Log.e("POST INCIDENCE", "Respuesta no exitosa: ${response.code()}")
+                        toReturn = null
+                    }
+                } catch (e: Exception) {
+                    Log.e("POST INCIDENCE", "Error al llamar a la API: ${e.message}")
+                    toReturn = null
+                }
+            }
+        }
+        return toReturn
+    } else {
+        vm.viewModelScope.launch {
+            try {
+                val response = ApiViewModel.incidenceService.insertIncidence("Bearer " + CurrentUser.userToken, incidence)
+                if (response.isSuccessful) {
+                    toReturn = response.body()
+                    Log.d("POST INCIDENCE", "Subido correctamente")
+
+                } else {
+                    Log.e("POST INCIDENCE", "Respuesta no exitosa: ${response.code()}")
+                    toReturn = null
+                }
+            } catch (e: Exception) {
+                Log.e("POST INCIDENCE", "Error al llamar a la API: ${e.message}")
+                toReturn = null
+            }
+        }
+        return toReturn
+    }
+}
+
+
+
+@SuppressLint("SimpleDateFormat")
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalEncodingApi::class)
 @Composable
 fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewModel? = null) {
-    var deviceInputText by remember { mutableStateOf("Torre") }
-    var classInputText by remember { mutableStateOf("Aula 001") }
+    val context = LocalContext.current
+    var titleInputText by remember { mutableStateOf(TextFieldValue()) }
     var deviceCodeInputText by remember { mutableStateOf(TextFieldValue()) }
-    var movistarFieldValue by remember(key1 = vm!!.movistarCodeVal) { mutableStateOf(vm.movistarCodeVal) }
+    val movistarFieldValue by remember(key1 = vm!!.movistarCodeVal) { mutableStateOf(vm.movistarCodeVal) }
     var descriptionInputText by remember { mutableStateOf(TextFieldValue()) }
 
-    var currentImage by remember { mutableStateOf(String()) }
+    //// Llistat de dispositius ////
+    val listDispositiu = listOf("Torre","Monitor","Teclat","Ratolí", "Altre")
+    var selectedDevice by remember { mutableStateOf(listDispositiu[0]) }
+    var isExpanded by remember { mutableStateOf(false) }
 
+    //// Llistat d'aules del centre ////
+    val listAula = listOf("Aula 001","Aula 002","Aula 003","Aula 004","Aula 005","Aula 006",
+        "Aula 007","Aula 008","Aula 009","Aula 010","Aula 011","Aula 012","Aula 013","Aula 014",
+        "Aula 015","Aula 016","Aula 017","Aula 018","Aula 019","Aula 020","Aula 021","Aula 022",
+        "Aula 023","Aula 024","Aula 025","Aula 026","Aula 027","Aula 099",
+        "Aula 101","Aula 102","Aula 103","Aula 104","Aula 105","Aula 106","Aula 107","Aula 108",
+        "Aula 109","Aula 110","Aula 111","Aula 112",
+        "Aula 201","Aula 202","Aula 203","Aula 204","Aula 205","Aula 206","Aula 207","Aula 208",
+        "Aula 209","Aula 210","Aula 211","Aula 212",
+        "Aula 301","Aula 302","Aula 303","Aula 304","Aula 305","Aula 306","Aula 307","Aula 308",
+        "Aula 309","Aula 310","Aula 311","Aula 312")
+    var selectedClass by remember { mutableStateOf(listAula[0]) }
+    var isExpandedAula by remember { mutableStateOf(false) }
 
+    //// Comprobar que el codigo debarras contenga solo numeros ////
+    if (!vm!!.movistarCodeVal.matches(Regex("[0-9]+")) && vm.movistarCodeVal != ""){
+        vm.movistarCodeVal = ""
+        Toast.makeText(context, "El codi ha de ser numèric", Toast.LENGTH_SHORT).show()
+    }
+
+    //// COLORES DE LOS TEXTFIELDS ////
     val textFieldColors = TextFieldDefaults.colors(
         focusedContainerColor = SecondaryColor,
         unfocusedContainerColor = SecondaryColor2,
@@ -86,10 +178,30 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
         cursorColor = TertiaryColor,
     )
 
+    //// CREAR URI PARA IMAGEN ////
+    val file = context.createImageFile()
+    val uri = FileProvider.getUriForFile(
+        Objects.requireNonNull(context),
+        context.packageName + ".provider", file)
+
+    //// CONCEDER PERMISO DE CAMARA ////
+    val permissionLauncher = rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()){
+    if (it)
+            Toast.makeText(context, "Permission Granted", Toast.LENGTH_SHORT).show()
+        else
+            Toast.makeText(context, "Permission Denied", Toast.LENGTH_SHORT).show() }
+
+    //// INICIAR CARAMA ////
+    val cameraLauncher = rememberLauncherForActivityResult(ActivityResultContracts.TakePicture()){
+        vm.currentImageUri = uri
+        navController!!.navigate(MyNavigationRoute.INCIDENCE_POST) }
+
+
+    //// FORMULARIO ////
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Blue1.copy(alpha = 1.0f))    ) {
+            .background(color = Blue1.copy(alpha = 1.0f))) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -101,13 +213,21 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // Llistat de dispositius
-            val listDispositiu = listOf("Torre","Monitor","Teclat","Ratolí", "Altre")
-            var selectedDevice by remember { mutableStateOf(listDispositiu[0]) }
-            var isExpanded by remember { mutableStateOf(false) }
+            // TEXT FIELD - TITOL INCIDENCIA
+            TextField(
+                maxLines = 1,
+                value = titleInputText,
+                onValueChange = { titleInputText = it },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(shape = RoundedCornerShape(10.dp)),
+                label = { Text("Titol *") },
+                colors = textFieldColors
+            )
+
+            Spacer(modifier = Modifier.height(10.dp))
 
             Row {
-
                 // DROP DOWN BOX - DISPOSITIU
                 Column(
                     modifier = Modifier
@@ -144,20 +264,6 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
                 }
                 
                 Spacer(modifier = Modifier.width(10.dp))
-
-                // Llistat d'aules del centre
-                val listAula = listOf("Aula 001","Aula 002","Aula 003","Aula 004","Aula 005","Aula 006",
-                    "Aula 007","Aula 008","Aula 009","Aula 010","Aula 011","Aula 012","Aula 013","Aula 014",
-                    "Aula 015","Aula 016","Aula 017","Aula 018","Aula 019","Aula 020","Aula 021","Aula 022",
-                    "Aula 023","Aula 024","Aula 025","Aula 026","Aula 027","Aula 099",
-                    "Aula 101","Aula 102","Aula 103","Aula 104","Aula 105","Aula 106","Aula 107","Aula 108",
-                    "Aula 109","Aula 110","Aula 111","Aula 112",
-                    "Aula 201","Aula 202","Aula 203","Aula 204","Aula 205","Aula 206","Aula 207","Aula 208",
-                    "Aula 209","Aula 210","Aula 211","Aula 212",
-                    "Aula 301","Aula 302","Aula 303","Aula 304","Aula 305","Aula 306","Aula 307","Aula 308",
-                    "Aula 309","Aula 310","Aula 311","Aula 312")
-                var selectedClass by remember { mutableStateOf(listAula[0]) }
-                var isExpandedAula by remember { mutableStateOf(false) }
 
                 // DROP DOWN BOX - AULA
                 Column(
@@ -215,7 +321,7 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
             TextField(
                 maxLines = 1,
                 value = movistarFieldValue,
-                onValueChange = { vm!!.changeCode(it)},
+                onValueChange = { vm.changeCode(it)},
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(shape = RoundedCornerShape(10.dp)),
@@ -247,18 +353,18 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
                 onValueChange = { descriptionInputText = it },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .fillMaxHeight(0.3f)
+                    .fillMaxHeight(0.25f)
                     .clip(shape = RoundedCornerShape(10.dp)),
                 label = { Text("Descripció") },
                 colors = textFieldColors
             )
 
 
-//            Spacer(modifier = Modifier.fillMaxHeight(0.15f))
 
             Row(modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp)
+                .height(200.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                 Column(
                     horizontalAlignment = Alignment.Start,
@@ -267,11 +373,21 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
 
                     // BOTON - HACER FOTO DE LA INCIDENCIA ****************************************
                     FloatingActionButton(
-                        onClick = {},
+                        onClick = {
+                            val permissionCheckResult = ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA)
+                            if (permissionCheckResult == PackageManager.PERMISSION_GRANTED) {
+                                cameraLauncher.launch(uri)
+                            } else {
+                                // Request camera permission if not granted
+                                permissionLauncher.launch(Manifest.permission.CAMERA)
+                            }
+
+                                  },
                         containerColor = SecondaryColor,
                         modifier = Modifier
-                            .padding(vertical = 5.dp)
+                            .padding(vertical = 10.dp)
                             .align(Alignment.Start)
+                            .width(80.dp)
                     ) {
                         Image(
                             painterResource(id = R.drawable.ic_photo_camera),
@@ -285,8 +401,9 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
                         onClick = {},
                         containerColor = SecondaryColor,
                         modifier = Modifier
-                            .padding(vertical = 5.dp)
+                            .padding(vertical = 10.dp)
                             .align(Alignment.Start)
+                            .width(80.dp)
                     ) {
                         Image(
                             painterResource(id = R.drawable.ic_perm_media),
@@ -304,14 +421,14 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
                 )
                 Box(modifier = Modifier
                     .fillMaxHeight()
-                    .fillMaxWidth(0.9f)
-                    .padding(10.dp)
+                    .wrapContentWidth()
+                    .padding(vertical = 20.dp, horizontal = 10.dp)
                     .background(SecondaryColor2.copy(alpha = 0.3f))
                     .drawBehind {
                         drawRoundRect(color = SecondaryColor, style = stroke)
                     }
                 ) {
-                    if (currentImage.isEmpty()){
+                    if (vm.currentImageUri == Uri.EMPTY){
                         Column(modifier = Modifier
                             .align(Alignment.Center)
                             .fillMaxWidth()) {
@@ -332,18 +449,47 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
                         }
                     } else {
                         Image(
-                            painter = painterResource(id = R.drawable.ic_perm_media),
+                            painter = rememberImagePainter(vm.currentImageUri),
                             contentDescription = "EXIT",
                             Modifier.size(200.dp)
                         )
                     }
                 }
             }
-//            Spacer(modifier = Modifier.fillMaxHeight(0.5f))
             Spacer(modifier = Modifier.fillMaxHeight(0.2f))
-
             Button(
-                onClick = {},
+                onClick = {
+                    val sdf = SimpleDateFormat("yyyy-mm-dd")
+                    val currentDate = sdf.format(Date())
+                    val newIncidence = Incidence(
+                        id = 0,
+                        device = selectedDevice,
+                        image = null,
+                        title = titleInputText.text,
+                        description = descriptionInputText.text,
+                        openDate = currentDate,
+                        closeDate = "",
+                        status = "obert",
+                        classNum = selectedClass.split(" ")[1].toInt(),
+                        userAssigned = "",
+                        codeMain = deviceCodeInputText.text,
+                        codeMovistar = if (vm.movistarCodeVal == "") null else vm.movistarCodeVal.toInt(),
+                        userId = CurrentUser.user!!.id!!
+                    )
+                    if (!checkNullValues(newIncidence))
+                        Toast.makeText(context, "Completa tots els camps", Toast.LENGTH_SHORT).show()
+                    else{
+                        vm.viewModelScope.launch {
+                            postIncidence(
+                                newIncidence,
+                                vm.currentImageUri,
+                                context,
+                                vm
+                            )
+                        }
+                    }
+
+                },
                 modifier = Modifier
                     .fillMaxWidth(0.8f)
                     .height(50.dp),
@@ -353,11 +499,22 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
                     contentColor = Color.White
                 ),
             ) {
-                Text(text = "ENVIAR", fontFamily = rowdiesFontFamily)
+                Row {
+
+                    Text(text = "ENVIAR", fontFamily = rowdiesFontFamily)
+                }
             }
         }
             }
 
+}
+
+//// COMPROBAR QUE LOS CAMPOS NO ESTEN VACIOS //// (si NO hay campos nulos devuelve TRUE)
+fun checkNullValues(Incidence: Incidence): Boolean {
+    if (Incidence.device == "Torre" || Incidence.device == "Monitor" ) {
+        return Incidence.title != "" && Incidence.codeMain != "" && Incidence.codeMovistar.toString() != ""
+    }
+    return Incidence.title != "" && Incidence.device != "" && Incidence.classNum != 0
 }
 
 @Preview

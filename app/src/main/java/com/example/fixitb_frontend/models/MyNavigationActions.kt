@@ -34,7 +34,7 @@ val navigationDestinations = listOf(
         iconText = "Incidences",
     ),
     MyNavigationDestination(
-        route = MyNavigationRoute.INCIDENCE_POST,
+        route = MyNavigationRoute.USER_DETAILS,
         selectedIcon = Icons.Default.Add,
         iconText = "Create Incidence",
     ),
@@ -50,7 +50,10 @@ object MyNavigationRoute{
     const val INCIDENCES = "incidences"
     const val INCIDENCE_POST = "incidence_post"
     const val CAMERA_BARCODE = "camera_barcode"
+    const val CAMERA = "camera"
     const val USERS = "users"
+    const val USER_DETAILS = "user_details"
+    const val PROFILE = "profile"
     const val LOGIN = "login"
     const val SPLASH = "splash"
 

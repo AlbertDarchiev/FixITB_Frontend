@@ -53,48 +53,48 @@ android {
 }
 
 dependencies {
+    //// BITMAP TO BASE64 ////
+    implementation("com.pixelcarrot.base64image:base64image:1.0.0")
 
-
-    // FIREBASE
+    //// FIREBASE ////
     implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
 
-    // GOOGLE AUTH
+    //// GOOGLE AUTH ////
     implementation("com.google.android.gms:play-services-auth:19.2.0")
 //    implementation("com.google.android.gms:play-services-identity:19.0.0")
 
 
-    // GOOGLE ML KIT BARCODE SCANNING
+    //// GOOGLE ML KIT BARCODE SCANNING ////
     implementation("com.google.mlkit:barcode-scanning:17.2.0")
     implementation("com.google.android.gms:play-services-mlkit-barcode-scanning:18.3.0")
 
-    // GOOGLE PERMISSIONS
+    //// GOOGLE PERMISSIONS ////
     implementation("com.google.accompanist:accompanist-permissions:0.32.0")
 
-    // CAMERA
+    //// CAMERA ////
     implementation("androidx.camera:camera-core:1.3.3")
     implementation("androidx.camera:camera-camera2:1.3.3")
     implementation("androidx.camera:camera-lifecycle:1.3.3")
     implementation("androidx.camera:camera-view:1.3.3")
 
-    // NAVIGATION
+    //// NAVIGATION ////
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
-    // LIFECYCLE - DATA
+    //// LIFECYCLE - DATA ////
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.0")
     implementation ("androidx.lifecycle:lifecycle-livedata:2.3.1")
 
-    // RETROFIT
+    //// RETROFIT ////
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    // SCALARS
+    //// SCALARS ////
     implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
 
-
-    // COIL
+    //// COIL ////
     implementation("io.coil-kt:coil-compose:2.2.2")
 
-    // SERIALIZATION
+    //// SERIALIZATION ////
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
 
     implementation("androidx.core:core-ktx:1.12.0")

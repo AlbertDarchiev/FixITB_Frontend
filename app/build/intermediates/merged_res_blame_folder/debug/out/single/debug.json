@@ -1,110 +1,122 @@
 [
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/drawable_server_img_1.jpg.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/drawable/server_img_1.jpg"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/drawable_img_logo_2.png.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/drawable/img_logo_2.png"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\drawable_ic_add.xml.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\drawable\\ic_add.xml"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/drawable/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\font_rowdies_regular.ttf.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\font\\rowdies_regular.ttf"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/drawable/ic_launcher_background.xml"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\drawable_img_logo_1.png.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\drawable\\img_logo_1.png"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/xml_data_extraction_rules.xml.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/xml/data_extraction_rules.xml"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/xml_backup_rules.xml.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/xml/backup_rules.xml"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/drawable_bin.png.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/drawable/bin.png"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\drawable_ic_perm_media.xml.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\drawable\\ic_perm_media.xml"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\drawable_lionface.jpg.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\drawable\\lionface.jpg"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/drawable_ic_photo_camera.xml.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/drawable/ic_photo_camera.xml"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\drawable_ic_photo_camera.xml.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\drawable\\ic_photo_camera.xml"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/font_rowdies_bold.ttf.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/font/rowdies_bold.ttf"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/font_rowdies_regular.ttf.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/font/rowdies_regular.ttf"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\font_rowdies_bold.ttf.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\font\\rowdies_bold.ttf"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\xml_path_provider.xml.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\xml\\path_provider.xml"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/drawable_ic_perm_media.xml.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/drawable/ic_perm_media.xml"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/font_rowdies_light.ttf.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/font/rowdies_light.ttf"
+        "merged": "com.example.fixitb_frontend.app-merged_res-68:/drawable_ic_person.xml.flat",
+        "source": "com.example.fixitb_frontend.app-main-70:/drawable/ic_person.xml"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\drawable_server_img_1.jpg.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\drawable\\server_img_1.jpg"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/drawable_lionface.jpg.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/drawable/lionface.jpg"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/drawable_img_logo_1.png.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/drawable/img_logo_1.png"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\font_rowdies_light.ttf.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\font\\rowdies_light.ttf"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/drawable_img_logo_google.png.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/drawable/img_logo_google.png"
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\drawable_img_logo_2.png.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\drawable\\img_logo_2.png"
+    },
+    {
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\drawable_img_logo_google.png.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\drawable\\img_logo_google.png"
+    },
+    {
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\drawable_bin.png.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\drawable\\bin.png"
     }
 ]

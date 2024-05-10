@@ -9,3 +9,9 @@ data class User(
     val role: String,
     val email: String
 )
+
+@Serializable
+data class UserResponse(
+    val token: String,
+    val user: User
+)

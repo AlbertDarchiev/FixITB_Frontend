@@ -24,23 +24,12 @@ import com.example.fixitb_frontend.ui.theme.rowdiesFontFamily
 @Composable
 fun ComposableHeader(text: String) {
     Column {
-//        Image(
-//            modifier = Modifier.align(Alignment.CenterHorizontally)
-//                .width(100.dp)
-//                .height(50.dp)
-//            ,
-//            alignment = Alignment.Center,
-//            painter = painterResource(id = R.drawable.img_logo_2),
-//            contentDescription = null,
-//
-//            contentScale = ContentScale.Crop
-//        )
         Spacer(modifier = Modifier.height(20.dp))
         Text(
             text = text,
             fontFamily = rowdiesFontFamily,
             fontSize = 30.sp,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
+            modifier = Modifier.align(Alignment.CenterHorizontally).fillMaxWidth(0.7f),
             color = Color.White,
         )
     }

@@ -12,15 +12,21 @@ import androidx.activity.compose.setContent
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
@@ -30,6 +36,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
@@ -53,6 +60,9 @@ import com.example.fixitb_frontend.ui.theme.SecondaryColor
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.auth.api.signin.GoogleSignInResult
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -69,12 +79,10 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
 object CurrentUser {
+    var user: User? = null
     var userToken: String? = null
     var userFireb: FirebaseUser? = null
     var userGoogle : GoogleSignInAccount? = null
-}
-object CurrentIncidence {
-    var barcodeValue : String? = ""
 }
 
 class MainActivity : ComponentActivity() {
@@ -83,18 +91,21 @@ class MainActivity : ComponentActivity() {
         ViewModelProvider(this).get(MainViewModel::class.java)
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
-
             val navController = rememberNavController()
-
             val navigateAction = remember(navController) {
                 MyNavigationActions(navController)
             }
+            mainViewModel.navController = navController
+
+
             val navBackStackEntry by navController.currentBackStackEntryAsState()
             val selectedDestination = navBackStackEntry?.destination?.route ?: MyNavigationRoute.INCIDENCES
+
             MyAppContent(
                 navController = navController,
                 selectedDestination = selectedDestination,
@@ -105,35 +116,55 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-suspend fun getUser(user: FirebaseUser): User {
-    val response = userService.getUserByEmail(user?.email.toString())
-    return response.body()!!
-}
-
 @Composable
-fun ALogin(navController: NavHostController, user: FirebaseUser?, googleUser: GoogleSignInAccount? = null, context: Context?) {
-    Column {
-        if (user == null ||googleUser == null){
+fun ALogin(navController: NavHostController, user: FirebaseUser?, googleUser: GoogleSignInAccount? = null, context: Context?, token: String, launcher:
+ManagedActivityResultLauncher<Intent, ActivityResult>? = null) {
+    Column(
+        modifier = Modifier
+        .fillMaxSize()
+        .padding(16.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally) {
+
+        CircularProgressIndicator()
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(text = "...")
+
+
+        if (user == null ||googleUser == null || launcher == null){
             navController.navigate(MyNavigationRoute.LOGIN)
         }
         else{
+            Log.d("GOOGLE token", googleUser.idToken.toString())
             LaunchedEffect(Unit) {
-                val response = userService.insertUser(Tokn(googleUser.idToken.toString()))
-                CurrentUser.userToken = response.body()
-                CurrentUser.userFireb = user
-                CurrentUser.userGoogle = googleUser
-                Log.d("GOOGLE usr", googleUser.email.toString())
-                Log.d("GOOGLE token", googleUser.idToken.toString())
-                Log.d("FIREBASE usr", user.email.toString())
+                try {
+                    val response = userService.insertUser(Tokn(googleUser.idToken.toString()))
+                    CurrentUser.userToken = response.body()?.token
+                    CurrentUser.userFireb = user
+                    CurrentUser.userGoogle = googleUser
+                    CurrentUser.user = response.body()?.user
 
-                val userInfo = User(1, "tecnic", "albert1979djy@gmail.com")
-                if (userInfo.role == "admin")
-                    navController.navigate(MyNavigationRoute.INCIDENCES)
-                else if (userInfo.role == "tecnic")
-                    navController.navigate(MyNavigationRoute.INCIDENCES)
-                else
-                    navController.navigate(MyNavigationRoute.INCIDENCES)
+                    Log.d("CURRENT TOKEN >>>>>>", response.body()?.token.toString())
+                    Log.d("CURRENT USER >>>>>>", response.body()?.user.toString())
+                    Log.d("GOOGLE token", googleUser.idToken.toString())
+
+
+                        while (CurrentUser.user == null) {
+                            delay(100)
+                        }
+
+                    if (CurrentUser.user!!.role == "admin")
+                        navController.navigate(MyNavigationRoute.INCIDENCES)
+                    if (CurrentUser.user!!.role == "tecnic")
+                        navController.navigate(MyNavigationRoute.INCIDENCES)
+                    else
+                        navController.navigate(MyNavigationRoute.INCIDENCES)
+
+                }catch (e: Exception) {
+                    navController.navigate(MyNavigationRoute.LOGIN)
+                    Log.d("Sesió caducada", "Error signing in", e)
+                }
+
             }
         }
     }
@@ -150,7 +181,6 @@ fun rememberFirebaseAuthLauncher(
     val scope = rememberCoroutineScope()
     return rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
         val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-        scope.launch {
             try {
                 val account = task.getResult(ApiException::class.java)
                 Log.d("Google Auth account", account.email.toString())
@@ -163,10 +193,13 @@ fun rememberFirebaseAuthLauncher(
                         if (response.isSuccessful){
                             val authResult = Firebase.auth.signInWithCredential(credential).await()
                             onAuthComplete(authResult)
-                            authResult.user?.email
+                            CurrentUser.user = response.body()?.user
                             CurrentUser.userFireb = authResult.user
-                            CurrentUser.userToken = response.body()
-                            Log.d("MY TOKEN", "Error signing in: ${CurrentUser.userToken}")
+                            CurrentUser.userToken = response.body()?.token
+                            Log.d("CURRENT TOKEN >>>>>>", response.body()?.token.toString())
+                            Log.d("CURRENT USER >>>>>>", response.body()?.user.toString())
+
+
                             navController.navigate(MyNavigationRoute.INCIDENCES)
                             delay(600)
                             isLoadingState.value = false
@@ -190,9 +223,6 @@ fun rememberFirebaseAuthLauncher(
             } finally {
                 isLoadingState.value = false
             }
-
-
-        }
     }
 }
 
@@ -238,7 +268,6 @@ fun MyAppContent(
     val context = LocalContext.current
     var user by remember { mutableStateOf(Firebase.auth.currentUser)}
     var googleUser by remember { mutableStateOf(GoogleSignIn.getLastSignedInAccount(context))}
-
     val token = context.getString(R.string.google_client_id)
     val launcher = rememberFirebaseAuthLauncher(
         navController,
@@ -255,6 +284,12 @@ fun MyAppContent(
     val currentRoute by navController.currentBackStackEntryAsState()
     val showBottomNavigation = rememberSaveable { mutableStateOf(true) }
 
+        if (CurrentUser.user != null && CurrentUser.user?.role == "admin") {
+            showBottomNavigation.value = true
+        } else {
+            showBottomNavigation.value = false
+    }
+
     Row(modifier = modifier.fillMaxSize()) {
         Column(modifier = Modifier.fillMaxSize()) {
             NavHost(
@@ -268,11 +303,17 @@ fun MyAppContent(
                 composable(MyNavigationRoute.INCIDENCE_POST) {
                     PostIncidenceScreen(navController, viewModel)
                 }
-                composable(MyNavigationRoute.USERS) {
-                    UsersScreen()
+                composable(MyNavigationRoute.USER_DETAILS) {
+                    UsersDetailScreen(1)
+                }
+//                composable(MyNavigationRoute.USERS) {
+//                    UsersScreen(navController, viewModel)
+//                }
+                composable(MyNavigationRoute.PROFILE) {
+                    ProfileScreen(navController, viewModel)
                 }
                 composable(MyNavigationRoute.SPLASH) {
-                    ALogin(navController, user, googleUser, context)
+                    ALogin(navController, user, googleUser, context, token, launcher)
                 }
                 composable(MyNavigationRoute.LOGIN) {
                     LoginScreen(launcher, token, context, isLoadingState)
@@ -280,14 +321,21 @@ fun MyAppContent(
                 composable(MyNavigationRoute.CAMERA_BARCODE) {
                     CameraPreview(navController, viewModel)
                 }
-
+                composable(MyNavigationRoute.CAMERA) {
+                    CameraScreen(navController, viewModel)
+                }
             }
 
             // OCULTAR EL BOTTOM NAVIGATION EN SPLASH, LOGIN y CAMARA
-            if (showBottomNavigation.value && currentRoute?.destination?.route !in listOf(
+            Log.d("ZZZZZZZZZZZ>>>>>>", CurrentUser.user.toString())
+            Log.d("RRRRRRRRRRR>>>>>>", CurrentUser.user?.role.toString())
+
+            if (showBottomNavigation.value && (
+                    showBottomNavigation.value && currentRoute?.destination?.route !in listOf(
                     MyNavigationRoute.SPLASH,
                     MyNavigationRoute.LOGIN,
-                    MyNavigationRoute.CAMERA_BARCODE)) {
+                    MyNavigationRoute.CAMERA,
+                    MyNavigationRoute.CAMERA_BARCODE))) {
                 MyBottomNavigation(
                     selectedDestination = selectedDestination,
                     navigateToDestination = navigateTopLevelDestination
@@ -296,6 +344,22 @@ fun MyAppContent(
         }
     }
 }
+
+@Composable
+fun LoadingScreen() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        CircularProgressIndicator() // Indicador de progreso circular
+        Spacer(modifier = Modifier.height(16.dp)) // Espacio vertical entre el indicador de progreso y el texto
+        Text(text = "Cargando...") // Texto indicando que se está cargando
+    }
+}
+
 //@Preview(
 //    showBackground = true,
 //    widthDp = 320,

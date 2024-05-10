@@ -66,6 +66,17 @@ fun LoginScreen(launcher :
 //    CurrentUser.userToken = null
 //    Firebase.auth.signOut()
 
+    val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        .requestIdToken(token!!)
+        .requestEmail()
+        .build()
+
+    val googleSignInClient = GoogleSignIn.getClient(context, gso)
+    if (Firebase.auth.currentUser != null) {
+        launcher!!.launch(googleSignInClient.signInIntent)
+    }
+
+
     Box(modifier = Modifier
         .fillMaxSize()
         .background(Color.Magenta)
@@ -109,7 +120,7 @@ fun LoginScreen(launcher :
                 .build()
 
             val googleSignInClient = GoogleSignIn.getClient(context, gso)
-            googleSignInClient.signOut()
+//            googleSignInClient.signOut()
             launcher!!.launch(googleSignInClient.signInIntent)
         },isLoading = isLoadingState!!.value)
 

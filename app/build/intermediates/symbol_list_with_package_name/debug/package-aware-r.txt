@@ -688,6 +688,7 @@ drawable common_google_signin_btn_text_light_normal_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_100tb
+drawable ic_add
 drawable ic_call_answer
 drawable ic_call_answer_low
 drawable ic_call_answer_video
@@ -697,6 +698,7 @@ drawable ic_call_decline_low
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_perm_media
+drawable ic_person
 drawable ic_photo_camera
 drawable img_logo_1
 drawable img_logo_2
@@ -1544,3 +1546,4 @@ styleable ViewStubCompat android_id android_layout android_inflatedId
 xml backup_rules
 xml data_extraction_rules
 xml image_share_filepaths
+xml path_provider

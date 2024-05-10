@@ -9,9 +9,11 @@ color teal_200
 color teal_700
 color white
 drawable bin
+drawable ic_add
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_perm_media
+drawable ic_person
 drawable ic_photo_camera
 drawable img_logo_1
 drawable img_logo_2
@@ -40,3 +42,4 @@ string title_activity_login_screen
 style Theme.FixItb_frontend
 xml backup_rules
 xml data_extraction_rules
+xml path_provider

@@ -9,6 +9,9 @@ val TertiaryColor = Color(0xFF051E4E)
 val Blue1 = Color(0xFF243661)
 val SecondaryColor2 = Color(0xFFA3BCEE).copy(alpha = 0.8f)
 
+val White1 = Color(0xFFB2C4E4)
+val White2 = Color(0xFFE7EFFF)
+
 val Purple40 = Color(0xFF141453)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
