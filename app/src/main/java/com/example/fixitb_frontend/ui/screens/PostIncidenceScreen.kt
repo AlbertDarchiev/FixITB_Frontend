@@ -47,6 +47,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -68,6 +69,9 @@ import com.example.fixitb_frontend.api.ApiViewModel
 import com.example.fixitb_frontend.models.Incidence
 import com.example.fixitb_frontend.models.MyNavigationRoute
 import com.example.fixitb_frontend.ui.composables.ComposableHeader
+import com.example.fixitb_frontend.ui.composables.buttons.GoBackButton
+import com.example.fixitb_frontend.ui.theme.BackColor1
+import com.example.fixitb_frontend.ui.theme.BackColor2
 import com.example.fixitb_frontend.ui.theme.Blue1
 import com.example.fixitb_frontend.ui.theme.PrimaryColor
 import com.example.fixitb_frontend.ui.theme.SecondaryColor
@@ -117,7 +121,7 @@ suspend fun postIncidence(incidence: Incidence, imageUri: Uri, context: Context,
                 if (response.isSuccessful) {
                     toReturn = response.body()
                     Log.d("POST INCIDENCE", "Subido correctamente")
-
+                    vm.navController!!.navigate(MyNavigationRoute.INCIDENCES)
                 } else {
                     Log.e("POST INCIDENCE", "Respuesta no exitosa: ${response.code()}")
                     toReturn = null
@@ -171,11 +175,15 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
     //// COLORES DE LOS TEXTFIELDS ////
     val textFieldColors = TextFieldDefaults.colors(
         focusedContainerColor = SecondaryColor,
-        unfocusedContainerColor = SecondaryColor2,
+        unfocusedContainerColor = PrimaryColor,
+
+        focusedLabelColor = Color.White,
+        unfocusedLabelColor = Color.White,
 
         focusedIndicatorColor = Color.White,
-        focusedLabelColor = Color.White,
+        unfocusedIndicatorColor = PrimaryColor,
         cursorColor = TertiaryColor,
+
     )
 
     //// CREAR URI PARA IMAGEN ////
@@ -201,16 +209,23 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Blue1.copy(alpha = 1.0f))) {
+            .background(
+                brush = Brush.linearGradient(
+                    colors = listOf(
+                        BackColor1,
+                        BackColor2
+                    )
+                )
+            )
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp), // Espacio alrededor para evitar bordes
+                .padding(start = 20.dp, end = 20.dp, top = 30.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Top
         ) {
             ComposableHeader("INCIDÈNCIA NOVA")
-
             Spacer(modifier = Modifier.height(20.dp))
 
             // TEXT FIELD - TITOL INCIDENCIA
@@ -221,7 +236,7 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(shape = RoundedCornerShape(10.dp)),
-                label = { Text("Titol *") },
+                label = { Text("Títol *") },
                 colors = textFieldColors
             )
 
@@ -246,7 +261,6 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
                             readOnly = true,
                             colors = textFieldColors,
                             trailingIcon = {ExposedDropdownMenuDefaults.TrailingIcon(expanded = isExpanded)},
-
                         )
                         ExposedDropdownMenu(expanded = isExpanded, onDismissRequest = {isExpanded = false}) {
                             listDispositiu.forEachIndexed{ index, text ->
@@ -397,20 +411,20 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
                     }
 
                     // BOTON - SELECCIONAR FOTO DE LA INCIDENCIA **********************************
-                    FloatingActionButton(
-                        onClick = {},
-                        containerColor = SecondaryColor,
-                        modifier = Modifier
-                            .padding(vertical = 10.dp)
-                            .align(Alignment.Start)
-                            .width(80.dp)
-                    ) {
-                        Image(
-                            painterResource(id = R.drawable.ic_perm_media),
-                            contentDescription = "EXIT",
-                            Modifier.size(34.dp)
-                        )
-                    }
+//                    FloatingActionButton(
+//                        onClick = {},
+//                        containerColor = SecondaryColor,
+//                        modifier = Modifier
+//                            .padding(vertical = 10.dp)
+//                            .align(Alignment.Start)
+//                            .width(80.dp)
+//                    ) {
+//                        Image(
+//                            painterResource(id = R.drawable.ic_perm_media),
+//                            contentDescription = "EXIT",
+//                            Modifier.size(34.dp)
+//                        )
+//                    }
                 }
 
                 Spacer(modifier = Modifier.width(15.dp))
@@ -423,7 +437,7 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
                     .fillMaxHeight()
                     .wrapContentWidth()
                     .padding(vertical = 20.dp, horizontal = 10.dp)
-                    .background(SecondaryColor2.copy(alpha = 0.3f))
+                    .background(PrimaryColor.copy(alpha = 0.2f))
                     .drawBehind {
                         drawRoundRect(color = SecondaryColor, style = stroke)
                     }
@@ -457,56 +471,59 @@ fun PostIncidenceScreen(navController: NavHostController? = null, vm : MainViewM
                 }
             }
             Spacer(modifier = Modifier.fillMaxHeight(0.2f))
-            Button(
-                onClick = {
-                    val sdf = SimpleDateFormat("yyyy-mm-dd")
-                    val currentDate = sdf.format(Date())
-                    val newIncidence = Incidence(
-                        id = 0,
-                        device = selectedDevice,
-                        image = null,
-                        title = titleInputText.text,
-                        description = descriptionInputText.text,
-                        openDate = currentDate,
-                        closeDate = "",
-                        status = "obert",
-                        classNum = selectedClass.split(" ")[1].toInt(),
-                        userAssigned = "",
-                        codeMain = deviceCodeInputText.text,
-                        codeMovistar = if (vm.movistarCodeVal == "") null else vm.movistarCodeVal.toInt(),
-                        userId = CurrentUser.user!!.id!!
-                    )
-                    if (!checkNullValues(newIncidence))
-                        Toast.makeText(context, "Completa tots els camps", Toast.LENGTH_SHORT).show()
-                    else{
-                        vm.viewModelScope.launch {
-                            postIncidence(
-                                newIncidence,
-                                vm.currentImageUri,
-                                context,
-                                vm
-                            )
+
+            //// BOTON PARA VOLVER ATRAS Y ENVIAR INCIDENCIA ////
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceBetween) {
+                GoBackButton(navController = navController!!, destination = MyNavigationRoute.INCIDENCES)
+                Button(
+                    modifier = Modifier
+                        .fillMaxWidth(1f)
+                        .height(50.dp),
+                    shape = RoundedCornerShape(15),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = PrimaryColor,
+                        contentColor = Color.White
+                    ),
+                    onClick = {
+                        val sdf = SimpleDateFormat("yyyy-MM-dd")
+                        val currentDate = sdf.format(Date())
+                        val newIncidence = Incidence(
+                            id = 0,
+                            device = selectedDevice,
+                            image = null,
+                            title = titleInputText.text,
+                            description = descriptionInputText.text,
+                            openDate = currentDate,
+                            closeDate = "",
+                            status = "obert",
+                            classNum = selectedClass.split(" ")[1].toInt(),
+                            userAssigned = "",
+                            codeMain = deviceCodeInputText.text,
+                            codeMovistar = if (vm.movistarCodeVal == "") null else vm.movistarCodeVal.toInt(),
+                            userId = CurrentUser.user!!.id!!
+                        )
+                        if (!checkNullValues(newIncidence))
+                            Toast.makeText(context, "Completa tots els camps", Toast.LENGTH_SHORT).show()
+                        else{
+                            vm.viewModelScope.launch {
+                                postIncidence(
+                                    newIncidence,
+                                    vm.currentImageUri,
+                                    context,
+                                    vm
+                                )
+                            }
                         }
-                    }
 
-                },
-                modifier = Modifier
-                    .fillMaxWidth(0.8f)
-                    .height(50.dp),
-                shape = RoundedCornerShape(15),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = PrimaryColor,
-                    contentColor = Color.White
-                ),
-            ) {
-                Row {
+                    },
 
+                ) {
                     Text(text = "ENVIAR", fontFamily = rowdiesFontFamily)
                 }
             }
+
         }
             }
-
 }
 
 //// COMPROBAR QUE LOS CAMPOS NO ESTEN VACIOS //// (si NO hay campos nulos devuelve TRUE)

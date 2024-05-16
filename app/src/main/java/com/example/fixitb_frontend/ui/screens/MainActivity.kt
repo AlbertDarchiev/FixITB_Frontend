@@ -126,9 +126,8 @@ ManagedActivityResultLauncher<Intent, ActivityResult>? = null) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
 
-        CircularProgressIndicator()
+        CircularProgressIndicator(trackColor = SecondaryColor, color = PrimaryColor, strokeWidth = 8.dp)
         Spacer(modifier = Modifier.height(16.dp))
-        Text(text = "...")
 
 
         if (user == null ||googleUser == null || launcher == null){
@@ -307,11 +306,11 @@ fun MyAppContent(
                     IncidenceDetailScreen(navController)
                 }
                 composable(MyNavigationRoute.USER_DETAILS) {
-                    UsersDetailScreen(1)
+                    UsersDetailScreen()
                 }
-//                composable(MyNavigationRoute.USERS) {
-//                    UsersScreen(navController, viewModel)
-//                }
+                composable(MyNavigationRoute.USERS) {
+                    UsersScreen(navController)
+                }
                 composable(MyNavigationRoute.PROFILE) {
                     ProfileScreen(navController, viewModel)
                 }
@@ -347,24 +346,3 @@ fun MyAppContent(
         }
     }
 }
-
-@Composable
-fun LoadingScreen() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        CircularProgressIndicator() // Indicador de progreso circular
-        Spacer(modifier = Modifier.height(16.dp)) // Espacio vertical entre el indicador de progreso y el texto
-        Text(text = "Cargando...") // Texto indicando que se está cargando
-    }
-}
-
-//@Preview(
-//    showBackground = true,
-//    widthDp = 320,
-//    heightDp = 640
-//)

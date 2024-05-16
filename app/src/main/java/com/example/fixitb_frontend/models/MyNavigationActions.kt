@@ -34,11 +34,6 @@ val navigationDestinations = listOf(
         iconText = "Incidences",
     ),
     MyNavigationDestination(
-        route = MyNavigationRoute.USER_DETAILS,
-        selectedIcon = Icons.Default.Add,
-        iconText = "Create Incidence",
-    ),
-    MyNavigationDestination(
         route = MyNavigationRoute.USERS,
         selectedIcon = Icons.Default.Person,
         iconText = "Users",

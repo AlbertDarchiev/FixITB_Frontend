@@ -16,21 +16,22 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.fixitb_frontend.R
 import com.example.fixitb_frontend.ui.theme.rowdiesFontFamily
 
 @Composable
-fun ComposableHeader(text: String) {
-    Column {
-        Spacer(modifier = Modifier.height(20.dp))
-        Text(
-            text = text,
-            fontFamily = rowdiesFontFamily,
-            fontSize = 30.sp,
-            modifier = Modifier.align(Alignment.CenterHorizontally).fillMaxWidth(0.7f),
-            color = Color.White,
-        )
-    }
+fun ComposableHeader(text: String, width: Float = 1f, size : Int = 30) {
+    Text(
+        text = text,
+        fontFamily = rowdiesFontFamily,
+        fontWeight = FontWeight.Bold,
+        fontSize = size.sp,
+        modifier = Modifier.fillMaxWidth(width),
+        color = Color.White,
+        textAlign = TextAlign.Center
+    )
+
 }

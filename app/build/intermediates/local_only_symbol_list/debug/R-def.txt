@@ -18,6 +18,7 @@ drawable ic_photo_camera
 drawable img_logo_1
 drawable img_logo_2
 drawable img_logo_google
+drawable itb_logo
 drawable lionface
 drawable server_img_1
 font rowdies_bold

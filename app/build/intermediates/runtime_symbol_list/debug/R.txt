@@ -702,6 +702,7 @@ int drawable ic_photo_camera 0x7f060081
 int drawable img_logo_1 0x7f060082
 int drawable img_logo_2 0x7f060083
 int drawable img_logo_google 0x7f060084
+int drawable itb_logo 0x7f060096
 int drawable lionface 0x7f060085
 int drawable notification_action_background 0x7f060086
 int drawable notification_bg 0x7f060087

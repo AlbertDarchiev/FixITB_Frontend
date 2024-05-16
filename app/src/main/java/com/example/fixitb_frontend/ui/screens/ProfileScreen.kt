@@ -20,6 +20,7 @@ fun ProfileScreen(navController: NavHostController, viewModel: ViewModel) {
     Column {
         //// SERRAR SESION EN GOOGLE ////
         Button(onClick = {
+
             val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(token)
                 .requestEmail()

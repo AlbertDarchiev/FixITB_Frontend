@@ -40,6 +40,10 @@
         "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\drawable\\img_logo_1.png"
     },
     {
+        "merged": "com.example.fixitb_frontend.app-merged_res-68:/drawable_itb_logo.png.flat",
+        "source": "com.example.fixitb_frontend.app-main-70:/drawable/itb_logo.png"
+    },
+    {
         "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\mipmap-hdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\mipmap-hdpi\\ic_launcher.webp"
     },
@@ -88,10 +92,6 @@
         "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.example.fixitb_frontend.app-merged_res-68:/drawable_ic_person.xml.flat",
-        "source": "com.example.fixitb_frontend.app-main-70:/drawable/ic_person.xml"
-    },
-    {
         "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\drawable_server_img_1.jpg.flat",
         "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\drawable\\server_img_1.jpg"
     },
@@ -114,6 +114,10 @@
     {
         "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\mipmap-hdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\drawable_ic_person.xml.flat",
+        "source": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-main-70:\\drawable\\ic_person.xml"
     },
     {
         "merged": "C:\\Users\\Albert Darchiev\\.gradle\\daemon\\8.2\\com.example.fixitb_frontend.app-merged_res-68:\\drawable_bin.png.flat",

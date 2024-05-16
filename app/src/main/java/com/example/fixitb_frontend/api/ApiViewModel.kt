@@ -10,7 +10,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 // ESTABLECER CONEXIÓN CON LA API
 object ApiViewModel {
 
-//    private const val BASE_URL = "http://172.30.1.78:8080"
+//    private const val BASE_URL = "http://172.30.3.46:8080"
 //    private const val BASE_URL = "http://172.30.1.58:8080"
     private const val BASE_URL = "http://192.168.1.21:8080"
 
