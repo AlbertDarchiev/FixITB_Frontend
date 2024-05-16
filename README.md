@@ -10,16 +10,12 @@ FixItb es un proyecto desarrollado para el Institut Tecnològic de Barcelona que
 ## BackEnd Project
 - [FixITB - BackEnd](https://github.com/AlandelaCruuz/FixITB_API)
 
-![App Screenshot](https://ik.imagekit.io/albertITB/readme/Nomad%20World.png?updatedAt=1708598106088) 
-
 
 # Technologies
-![Kotlin](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
-![Jetpack Compose](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Firebase](https://a11ybadges.com/badge?logo=kotlin)
+![Jetpack Compose](https://img.shields.io/badge/JetpackCompose-005571?style=for-the-badge&logo=jetpackcompose)
 
-![MLKit](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
-![Imagekit](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
-
-## Screenshots 
-![App Screenshot](https://ik.imagekit.io/albertITB/readme/2.png?updatedAt=1708598745336)
-![App Screenshot](https://ik.imagekit.io/albertITB/readme/3.png?updatedAt=1708598745238)
+![Firebase](https://a11ybadges.com/badge?logo=firebase)
+![MLKit](https://img.shields.io/badge/MLKit-005571?style=for-the-badge)
+![Imagekit](https://img.shields.io/badge/Imagekit-005571?style=for-the-badge)
+![Retrofit2](https://img.shields.io/badge/Retrofit2-005571?style=for-the-badge&logo=retrofit2)
