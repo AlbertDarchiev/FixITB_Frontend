@@ -83,3 +83,46 @@ Objetivos de hoy:
  - Alan: Implementar Imagekit para subir las imagenes a la nuve, y guardar la URL de imagen en la BD
  - Roman: Comenzar con la pantalla de Detalles Usuario
  - Albert: Guardar imagen de camara/galeria en local y hacer peticion POST a la api para guardar incidencia
+
+### 02/05/2024
+Objetivos de hoy:
+ - Alan: Pantalla detalle de incidéncia con datos reales
+ - Roman: Realizar el cambio de rol en la app
+ - Albert: Realizar post de incidència en la app
+
+### 03/05/2024
+Objetivos de hoy:
+ - Alan: Pantalla detalle de incidéncia con datos reales
+ - Roman: Realizar el cambio de rol en la app
+ - Albert: Editar diseño de la pagina Lista Incidencias y Crear Incidencia
+
+## Sprint 4
+### 06/05/2024
+Objetivos de hoy:
+ - Alan: Pagina de detalle solo para tipos de usuario tecnicos
+ - Roman: Realizar el cambio de rol en la app
+ - Albert: Detectar con que rol se inicia sesión y guardar en VM. Arreglar error Inicio Sesión
+
+### 07/05/2024
+Objetivos de hoy:
+ - Alan: Asignarse la incidencia el técnico a si mismo
+ - Roman: Eliminar usuarios 
+ - Albert: Editar diseño de la pagina Lista Incidencias y Crear Incidencia
+
+### 08/05/2024
+Objetivos de hoy:
+ - Alan: Cambiar el estado de la incidencia para el tecnico
+ - Roman: Realizar el cambio de rol en la app
+ - Albert: Filtro de incidencias para pantalla de incidencias
+
+### 09/05/2024
+Objetivos de hoy:
+ - Alan: Cambiar el estado de la incidencia para el tecnico
+ - Roman: Eliminar usuarios 
+ - Albert: Realizar control de errores en la pagina Crear incidencia
+
+### 10/05/2024
+Objetivos de hoy:
+ - Alan: Pantalla de detalle de usuarios con datos reales
+ - Roman: Editar incidencia 
+ - Albert: Asignar a técnico una incidencia desde admin
